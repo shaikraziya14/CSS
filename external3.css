@@ -1,0 +1,14 @@
+ h1 {
+            background: burlywood;
+            color: blue;
+        }
+
+        p {
+            background: blanchedalmond;
+            color: rgb(173, 26, 26);
+            border-style: dotted;
+        }
+
+        h2 {
+            background-color: blueviolet
+        }
