@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>College Application Portal</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        :root {
+            --blue: #4361ee;
+            --purple: #7557e8;
+            --ink: #18233b;
+            --muted: #77829a;
+            --line: #e7eaf2;
+            --bg: #f4f6fc;
+            --green: #14845e
+        }
+
+        * {
+            box-sizing: border-box
+        }
+
+        body {
+            margin: 0;
+            background: var(--bg);
+            color: var(--ink);
+            font-family: "DM Sans", sans-serif
+        }
+
+        header {
+            background: #fff;
+            border-bottom: 1px solid var(--line)
+        }
+
+        .nav {
+            max-width: 1180px;
+            margin: auto;
+            padding: 15px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center
+        }
+
+        .brand {
+            font: 800 19px Manrope;
+            display: flex;
+            align-items: center;
+            gap: 10px
+        }
+
+        .brand i {
+            background: linear-gradient(135deg, var(--blue), var(--purple));
+            color: white;
+            padding: 12px;
+            border-radius: 12px
+        }
+
+        .nav small {
+            color: var(--muted)
+        }
+
+        .hero {
+            background: linear-gradient(115deg, #172554, #3449a5 60%, #7259db);
+            color: white;
+            padding: 38px 24px 72px
+        }
+
+        .hero-in {
+            max-width: 1180px;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center
+        }
+
+        .hero h1 {
+            font: 800 clamp(26px, 4vw, 39px) Manrope;
+            margin: 8px 0
+        }
+
+        .hero p {
+            color: #dce4ff;
+            font-size: 14px;
+            margin: 0
+        }
+
+        .eyebrow {
+            font-size: 11px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #c6d2ff
+        }
+
+        .hero-art {
+            font-size: 70px;
+            margin-right: 5%;
+            opacity: .9
+        }
+
+        main {
+            max-width: 1180px;
+            margin: -38px auto 50px;
+            padding: 0 24px;
+            position: relative
+        }
+
+        .card {
+            background: white;
+            border: 1px solid var(--line);
+            border-radius: 19px;
+            box-shadow: 0 12px 35px #1f2d5a12;
+            padding: 25px;
+            margin-bottom: 25px
+        }
+
+        .heading {
+            display: flex;
+            align-items: center;
+            gap: 11px;
+            margin: 0 0 21px;
+            font: 700 18px Manrope
+        }
+
+        .heading i {
+            width: 36px;
+            height: 36px;
+            border-radius: 11px;
+            background: #eef0ff;
+            color: var(--blue);
+            display: grid;
+            place-items: center
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 16px
+        }
+
+        .field {
+            display: flex;
+            flex-direction: column;
+            gap: 7px
+        }
+
+        .wide {
+            grid-column: span 2
+        }
+
+        label {
+            font-size: 11px;
+            font-weight: 700;
+            color: #526079;
+            letter-spacing: .4px
+        }
+
+        input,
+        select,
+        textarea {
+            width: 100%;
+            border: 1px solid #dfe4ef;
+            border-radius: 10px;
+            padding: 12px 13px;
+            background: #fbfcff;
+            font: 13px "DM Sans";
+            color: var(--ink);
+            outline: none
+        }
+
+        input:focus,
+        select:focus,
+        textarea:focus {
+            border-color: var(--blue);
+            box-shadow: 0 0 0 3px #4361ee18
+        }
+
+        textarea {
+            min-height: 75px;
+            resize: vertical
+        }
+
+        .upload {
+            border: 1.5px dashed #cbd3e5;
+            border-radius: 12px;
+            padding: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: #fafbff
+        }
+
+        .upload i {
+            background: #eeefff;
+            color: var(--purple);
+            padding: 12px;
+            border-radius: 10px
+        }
+
+        .upload input {
+            max-width: 180px;
+            border: 0;
+            background: transparent;
+            padding: 4px;
+            box-shadow: none;
+            font-size: 11px
+        }
+
+        /* ===== PINK & ROSE COLLEGE THEME ===== */
+
+        :root {
+            --blue: #ec4899;
+            --purple: #db2777;
+            --ink: #4a1832;
+            --muted: #9d7188;
+            --line: #f5cddd;
+            --bg: #fff5f9;
+            --green: #15803d;
+            --hero1: #9d174d;
+            --hero2: #db2777;
+            --hero3: #f472b6;
+            --tint: #fce7f3;
+            --shadow: rgba(190, 24, 93, 0.10);
+        }
+
+        /* Page background */
+        body {
+            background:
+                radial-gradient(circle at top left, #fce7f3, transparent 35%),
+                #fff5f9;
+            color: var(--ink);
+        }
+
+        /* Header */
+        header {
+            background: #fffafd;
+            border-bottom: 1px solid #fbcfe8;
+        }
+
+        /* Brand icon */
+        .brand i {
+            background: linear-gradient(135deg, #ec4899, #be185d);
+            color: white;
+        }
+
+        /* Hero section */
+        .hero {
+            background: linear-gradient(120deg,
+                    #831843,
+                    #db2777,
+                    #f472b6);
+            color: white;
+        }
+
+        /* Cards */
+        .card {
+            background: #ffffff;
+            border: 1px solid #fbcfe8;
+            border-radius: 20px;
+            box-shadow: 0 12px 35px rgba(190, 24, 93, 0.10);
+        }
+
+        /* Section heading icons */
+        .heading i {
+            background: #fce7f3;
+            color: #db2777;
+        }
+
+        /* Form labels */
+        label {
+            color: #9d174d;
+        }
+
+        /* Input fields */
+        input,
+        select,
+        textarea {
+            background: #fff8fb;
+            border: 1px solid #f3c4d9;
+            color: #4a1832;
+            border-radius: 11px;
+        }
+
+        /* Input focus */
+        input:focus,
+        select:focus,
+        textarea:focus {
+            border-color: #ec4899;
+            box-shadow: 0 0 0 3px rgba(236, 72, 153, 0.15);
+        }
+
+        /* Upload box */
+        .upload {
+            background: #fff5f9;
+            border: 2px dashed #f0a6c5;
+        }
+
+        .upload i {
+            background: #fce7f3;
+            color: #db2777;
+        }
+
+        /* Buttons */
+        .btn.primary,
+        .primary {
+            background: linear-gradient(110deg, #ec4899, #be185d);
+            color: white;
+            box-shadow: 0 7px 18px rgba(219, 39, 119, 0.25);
+        }
+
+        .btn.primary:hover {
+            background: linear-gradient(110deg, #db2777, #9d174d);
+            transform: translateY(-2px);
+        }
+
+        .light {
+            background: #fce7f3;
+            color: #9d174d;
+        }
+
+        /* Table header */
+        th {
+            color: #be185d;
+            background: #fff0f6;
+            border-bottom: 1px solid #f5cddd;
+        }
+
+        /* Table rows */
+        td {
+            border-bottom: 1px solid #fce7f3;
+        }
+
+        tbody tr:hover {
+            background: #fff5f9;
+        }
+
+        /* Course badge */
+        .course {
+            background: #fce7f3;
+            color: #be185d;
+        }
+
+        /* Status badge */
+        .status {
+            background: #dcfce7;
+            color: #15803d;
+        }
+
+        /* Delete button */
+        .action {
+            background: #ffe4e6;
+            color: #be123c;
+        }
+
+        .action:hover {
+            background: #fecdd3;
+        }
+
+        /* Search field */
+        .search input {
+            background: #fffafd;
+        }
+
+        /* Theme selector */
+        .theme-picker {
+            background: #fffafd;
+            border: 1px solid #f5cddd;
+        }
+
+        /* Pink page decoration */
+        .style-note {
+            background: linear-gradient(110deg, #fffafd, #fff0f6);
+            border: 1px solid #f5cddd;
+        }
+
+        .style-icon {
+            background: #fce7f3;
+            color: #db2777;
+        }
+
+        /* Footer */
+        footer {
+            color: #be7899;
+        }
+
+
+        .upload-text {
+            flex: 1;
+            font-size: 12px;
+            font-weight: 700
+        }
+
+        .upload-text small {
+            display: block;
+            color: var(--muted);
+            font-size: 10px;
+            margin-top: 3px
+        }
+
+        .actions {
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+            margin-top: 20px
+        }
+
+        .btn {
+            border: 0;
+            border-radius: 10px;
+            padding: 12px 17px;
+            font: 700 12px "DM Sans";
+            cursor: pointer
+        }
+
+        .light {
+            background: #f0f2f8;
+            color: #56617a
+        }
+
+        .primary {
+            background: linear-gradient(110deg, var(--blue), var(--purple));
+            color: white;
+            box-shadow: 0 7px 16px #4361ee30
+        }
+
+        .table-head {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 14px;
+            flex-wrap: wrap;
+            margin-bottom: 17px
+        }
+
+        .table-head .heading {
+            margin: 0
+        }
+
+        .search {
+            position: relative;
+            width: min(270px, 100%)
+        }
+
+        .search i {
+            position: absolute;
+            left: 13px;
+            top: 13px;
+            color: #929bb0
+        }
+
+        .search input {
+            padding-left: 36px;
+            background: white
+        }
+
+        .table-wrap {
+            overflow-x: auto
+        }
+
+        table {
+            width: 100%;
+            min-width: 780px;
+            border-collapse: collapse
+        }
+
+        th {
+            text-align: left;
+            padding: 12px 10px;
+            color: #8993a8;
+            font-size: 10px;
+            letter-spacing: .7px;
+            border-bottom: 1px solid var(--line)
+        }
+
+        td {
+            padding: 13px 10px;
+            border-bottom: 1px solid #eff1f6;
+            font-size: 12px;
+            vertical-align: middle
+        }
+
+        .student {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            min-width: 190px
+        }
+
+        .avatar {
+            width: 43px;
+            height: 43px;
+            object-fit: cover;
+            border-radius: 12px;
+            background: #eef0ff
+        }
+
+        .student strong {
+            display: block
+        }
+
+        .student small {
+            display: block;
+            color: var(--muted);
+            font-size: 10px;
+            margin-top: 4px
+        }
+
+        .course {
+            background: #f0efff;
+            color: #6452ce;
+            padding: 6px 9px;
+            border-radius: 20px;
+            font-size: 10px;
+            font-weight: 700
+        }
+
+        .status {
+            background: #eaf8f1;
+            color: var(--green);
+            padding: 6px 9px;
+            border-radius: 20px;
+            font-size: 10px;
+            font-weight: 700
+        }
+
+        .action {
+            border: 0;
+            border-radius: 8px;
+            background: #fff0f0;
+            color: #d34f5c;
+            padding: 8px 10px;
+            cursor: pointer
+        }
+
+        .empty {
+            text-align: center;
+            padding: 25px;
+            color: var(--muted);
+            font-size: 13px
+        }
+
+        footer {
+            text-align: center;
+            color: #9aa3b6;
+            font-size: 11px;
+            padding: 0 15px 25px
+        }
+
+        @media(max-width:800px) {
+            .grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr))
+            }
+
+            .hero-art {
+                font-size: 50px
+            }
+        }
+
+        @media(max-width:560px) {
+            .nav {
+                padding: 13px 16px
+            }
+
+            .nav small,
+            .hero-art {
+                display: none
+            }
+
+            .hero {
+                padding: 30px 17px 65px
+            }
+
+            main {
+                padding: 0 12px
+            }
+
+            .card {
+                padding: 17px
+            }
+
+            .grid {
+                grid-template-columns: 1fr
+            }
+
+            .wide {
+                grid-column: auto
+            }
+
+            .upload {
+                flex-wrap: wrap
+            }
+
+            .upload input {
+                width: 100%;
+                max-width: none
+            }
+
+            .actions .btn {
+                flex: 1
+            }
+
+            .search {
+                width: 100%
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="nav">
+            <div class="brand"><i class="fa-solid fa-graduation-cap"></i> Campus<span
+                    style="color:#5d5be7">Connect</span></div><small><i class="fa-solid fa-shield-halved"
+                    style="color:#16865f"></i> College Admission Portal</small>
+        </div>
+    </header>
+    <section class="hero">
+        <div class="hero-in">
+            <div>
+                <div class="eyebrow">Admissions • Student records</div>
+                <h1>College Application Form</h1>
+                <p>Register students and manage applications in one place.</p>
+            </div>
+            <div class="hero-art"><i class="fa-solid fa-building-columns"></i></div>
+        </div>
+    </section>
+    <main>
+        <section class="card">
+            <h2 class="heading"><i class="fa-solid fa-user-plus"></i> Student application details</h2>
+            <form id="applicationForm">
+                <div class="grid">
+                    <div class="field"><label for="studentName">STUDENT FULL NAME *</label><input id="studentName"
+                            required placeholder="Enter full name"></div>
+                    <div class="field"><label for="email">EMAIL ADDRESS *</label><input id="email" type="email" required
+                            placeholder="student@example.com"></div>
+                    <div class="field"><label for="phone">PHONE NUMBER *</label><input id="phone" type="tel" required
+                            placeholder="Enter phone number"></div>
+                    <div class="field"><label for="dob">DATE OF BIRTH *</label><input id="dob" type="date" required>
+                    </div>
+                    <div class="field"><label for="gender">GENDER</label><select id="gender">
+                            <option value="">Select gender</option>
+                            <option>Female</option>
+                            <option>Male</option>
+                            <option>Prefer not to say</option>
+                        </select></div>
+                    <div class="field"><label for="course">COURSE APPLIED FOR *</label><select id="course" required>
+                            <option value="">Choose course</option>
+                            <option>B.Sc Computer Science</option>
+                            <option>B.Com</option>
+                            <option>B.A English</option>
+                            <option>BBA</option>
+                            <option>BCA</option>
+                            <option>B.Tech</option>
+                            <option>MBA</option>
+                        </select></div>
+                    <div class="field"><label for="qualification">LAST QUALIFICATION *</label><select id="qualification"
+                            required>
+                            <option value="">Select qualification</option>
+                            <option>12th / Intermediate</option>
+                            <option>Diploma</option>
+                            <option>Undergraduate</option>
+                            <option>Postgraduate</option>
+                        </select></div>
+                    <div class="field"><label for="year">ADMISSION YEAR</label><select id="year">
+                            <option>2026-27</option>
+                            <option>2027-28</option>
+                            <option>2028-29</option>
+                        </select></div>
+                    <div class="field"><label for="city">CITY *</label><input id="city" required
+                            placeholder="Enter city"></div>
+                    <div class="field wide"><label for="address">ADDRESS</label><textarea id="address"
+                            placeholder="House number, street, area..."></textarea></div>
+                    <div class="field"><label for="photo">STUDENT PHOTO</label>
+                        <div class="upload"><i class="fa-regular fa-image"></i>
+                            <div class="upload-text">Upload student photo<small>JPG or PNG · Optional</small></div>
+                            <input id="photo" type="file" accept="image/*">
+                        </div>
+                    </div>
+                </div>
+                <div class="actions"><button class="btn light" type="reset"><i class="fa-solid fa-rotate-left"></i>
+                        Clear form</button><button class="btn primary" type="submit"><i
+                            class="fa-solid fa-paper-plane"></i> Submit application</button></div>
+            </form>
+        </section>
+        <section class="card">
+            <div class="table-head">
+                <h2 class="heading"><i class="fa-solid fa-table-list"></i> Student applications</h2>
+                <div class="search"><i class="fa-solid fa-magnifying-glass"></i><input id="search" type="search"
+                        placeholder="Search name, course, city..."></div>
+            </div>
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Student</th>
+                            <th>Application ID</th>
+                            <th>Course</th>
+                            <th>Contact</th>
+                            <th>City</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="records">
+                        <tr>
+                            <td>
+                                <div class="student"><img class="avatar"
+                                        src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&h=100&fit=crop&crop=faces"
+                                        alt="Student">
+                                    <div><strong>Ananya Reddy</strong><small>ananya@example.com</small></div>
+                                </div>
+                            </td>
+                            <td>APP-2026-001</td>
+                            <td><span class="course">BCA</span></td>
+                            <td>98765 43210</td>
+                            <td>Chittoor</td>
+                            <td><span class="status">Submitted</span></td>
+                            <td><button class="action" onclick="this.closest('tr').remove();filterRows()"
+                                    title="Delete"><i class="fa-solid fa-trash"></i></button></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="student"><img class="avatar"
+                                        src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop&crop=faces"
+                                        alt="Student">
+                                    <div><strong>Arjun Kumar</strong><small>arjun@example.com</small></div>
+                                </div>
+                            </td>
+                            <td>APP-2026-002</td>
+                            <td><span class="course">B.Com</span></td>
+                            <td>91234 56780</td>
+                            <td>Tirupati</td>
+                            <td><span class="status">Submitted</span></td>
+                            <td><button class="action" onclick="this.closest('tr').remove();filterRows()"
+                                    title="Delete"><i class="fa-solid fa-trash"></i></button></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="student"><img class="avatar"
+                                        src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&h=100&fit=crop&crop=faces"
+                                        alt="Student">
+                                    <div><strong>Meera Sharma</strong><small>meera@example.com</small></div>
+                                </div>
+                            </td>
+                            <td>APP-2026-003</td>
+                            <td><span class="course">B.Sc CS</span></td>
+                            <td>99887 76655</td>
+                            <td>Bengaluru</td>
+                            <td><span class="status">Submitted</span></td>
+                            <td><button class="action" onclick="this.closest('tr').remove();filterRows()"
+                                    title="Delete"><i class="fa-solid fa-trash"></i></button></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div id="empty" class="empty" hidden><i class="fa-regular fa-folder-open"></i><br>No applications found.
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>© 2026 CampusConnect · College Application Management</footer>
+    <script>
+        const form = document.getElementById('applicationForm'), records = document.getElementById('records'), search = document.getElementById('search'), empty = document.getElementById('empty'); let nextId = 4;
+        function filterRows() { const q = search.value.toLowerCase().trim();[...records.rows].forEach(r => r.hidden = !r.textContent.toLowerCase().includes(q)); empty.hidden = [...records.rows].some(r => !r.hidden) }
+        search.addEventListener('input', filterRows);
+        form.addEventListener('submit', e => {
+            e.preventDefault(); const v = id => document.getElementById(id).value.trim(), name = v('studentName'), email = v('email'), phone = v('phone'), course = v('course'), city = v('city'), file = document.getElementById('photo').files[0], src = file ? URL.createObjectURL(file) : 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&h=100&fit=crop&crop=faces'; const tr = document.createElement('tr'), td = document.createElement('td'), student = document.createElement('div'); student.className = 'student'; const img = document.createElement('img'); img.className = 'avatar'; img.src = src; img.alt = 'Student photo'; const info = document.createElement('div'), strong = document.createElement('strong'), small = document.createElement('small'); strong.textContent = name; small.textContent = email; info.append(strong, small); student.append(img, info); td.append(student); tr.append(td);
+            [`APP-2026-${String(nextId++).padStart(3, '0')}`, course, phone, city].forEach((value, i) => { const cell = document.createElement('td'); if (i === 1) { const tag = document.createElement('span'); tag.className = 'course'; tag.textContent = value; cell.append(tag) } else cell.textContent = value; tr.append(cell) });
+            const st = document.createElement('td'), tag = document.createElement('span'); tag.className = 'status'; tag.textContent = 'Submitted'; st.append(tag); tr.append(st); const ac = document.createElement('td'), del = document.createElement('button'); del.className = 'action'; del.type = 'button'; del.title = 'Delete'; del.innerHTML = '<i class="fa-solid fa-trash"></i>'; del.onclick = () => { tr.remove(); filterRows() }; ac.append(del); tr.append(ac); records.prepend(tr); form.reset(); filterRows()
+        });
+    </script>
+</body>
+
+</html>

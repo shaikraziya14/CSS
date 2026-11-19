@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Classifieds</title>
+    <style>
+        * { box-sizing: border-box; }
+
+        body {
+            margin: 0;
+            padding: 32px 18px;
+            background: #f3f6fb;
+            color: #1d2939;
+            font-family: Arial, sans-serif;
+        }
+
+        .page { max-width: 1050px; margin: auto; }
+
+        header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 28px;
+        }
+
+        .logo {
+            width: 58px;
+            height: 66px;
+            display: grid;
+            place-items: center;
+            background: #2563eb;
+            color: white;
+            clip-path: polygon(50% 0, 100% 12%, 92% 78%, 50% 100%, 8% 78%, 0 12%);
+            font-size: 22px;
+            font-weight: 800;
+        }
+
+        header h1 { margin: 0 0 5px; font-size: 28px; }
+        header p { margin: 0; color: #667085; }
+
+        .panel {
+            margin-bottom: 24px;
+            padding: 24px;
+            background: white;
+            border: 1px solid #e4e7ec;
+            border-radius: 16px;
+            box-shadow: 0 8px 24px #1018280d;
+        }
+
+        .panel h2 { margin: 0 0 20px; font-size: 20px; }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 16px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 7px;
+            color: #344054;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        input, select {
+            width: 100%;
+            min-height: 44px;
+            padding: 10px 12px;
+            border: 1px solid #d0d5dd;
+            border-radius: 9px;
+            background: white;
+            color: #1d2939;
+            font: inherit;
+        }
+
+        input:focus, select:focus {
+            outline: 3px solid #bfdbfe;
+            border-color: #2563eb;
+        }
+
+        .full-width { grid-column: 1 / -1; }
+
+        button {
+            min-height: 44px;
+            padding: 0 18px;
+            border: 0;
+            border-radius: 9px;
+            background: #2563eb;
+            color: white;
+            font: inherit;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        button:hover { background: #1d4ed8; }
+
+        .table-wrap { overflow-x: auto; }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+        }
+
+        th, td {
+            padding: 13px 12px;
+            border-bottom: 1px solid #eaecf0;
+            white-space: nowrap;
+        }
+
+        th {
+            background: #f8fafc;
+            color: #667085;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: .05em;
+        }
+
+        .listing-image {
+            width: 62px;
+            height: 48px;
+            border-radius: 8px;
+            object-fit: cover;
+            background: #e4e7ec;
+        }
+
+        .price { color: #16794a; font-weight: 700; }
+        .condition {
+            padding: 5px 9px;
+            border-radius: 20px;
+            background: #ecfdf3;
+            color: #067647;
+            font-size: 12px;
+        }
+
+        @media (max-width: 650px) {
+            body { padding: 22px 12px; }
+            .panel { padding: 18px 14px; }
+            .form-grid { grid-template-columns: 1fr; }
+            .full-width { grid-column: auto; }
+            header h1 { font-size: 23px; }
+        }
+    </style>
+</head>
+<body>
+    <main class="page">
+        <header>
+            <div class="logo" aria-label="CSS logo">CSS</div>
+            <div>
+                <h1>CSS Classifieds</h1>
+                <p>Post an item and browse community listings</p>
+            </div>
+        </header>
+
+        <section class="panel">
+            <h2>＋ Post a new listing</h2>
+            <form id="listing-form" class="form-grid">
+                <div>
+                    <label for="item">Item name</label>
+                    <input id="item" name="item" placeholder="e.g. Wireless headphones" required>
+                </div>
+                <div>
+                    <label for="category">Category</label>
+                    <select id="category" name="category" required>
+                        <option value="">Choose a category</option>
+                        <option>Electronics</option>
+                        <option>Books</option>
+                        <option>Home &amp; Garden</option>
+                        <option>Clothing</option>
+                        <option>Other</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="price">Price (₹)</label>
+                    <input id="price" name="price" type="number" min="0" placeholder="1500" required>
+                </div>
+                <div>
+                    <label for="location">Location</label>
+                    <input id="location" name="location" placeholder="e.g. Hyderabad" required>
+                </div>
+                <div>
+                    <label for="condition">Condition</label>
+                    <select id="condition" name="condition" required>
+                        <option value="">Choose condition</option>
+                        <option>New</option>
+                        <option>Like new</option>
+                        <option>Good</option>
+                        <option>Used</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="image">Image URL</label>
+                    <input id="image" name="image" type="url" placeholder="https://example.com/image.jpg">
+                </div>
+                <div class="full-width">
+                    <button type="submit">＋ Add listing</button>
+                </div>
+            </form>
+        </section>
+
+        <section class="panel">
+            <h2>▦ Recent listings</h2>
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Photo</th>
+                            <th>Item</th>
+                            <th>Category</th>
+                            <th>Location</th>
+                            <th>Condition</th>
+                            <th>Price</th>
+                        </tr>
+                    </thead>
+                    <tbody id="listing-table">
+                        <tr>
+                            <td>
+                                <img class="listing-image"
+                                    src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=160&h=120&fit=crop"
+                                    alt="Headphones">
+                            </td>
+                            <td>Wireless headphones</td>
+                            <td>Electronics</td>
+                            <td>Hyderabad</td>
+                            <td><span class="condition">Good</span></td>
+                            <td class="price">₹1,500</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        const form = document.getElementById("listing-form");
+        const table = document.getElementById("listing-table");
+
+        form.addEventListener("submit", (event) => {
+            event.preventDefault();
+
+            const data = new FormData(form);
+            const row = document.createElement("tr");
+            const imageCell = document.createElement("td");
+            const image = document.createElement("img");
+
+            image.className = "listing-image";
+            image.src = data.get("image") || "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=160&h=120&fit=crop";
+            image.alt = String(data.get("item"));
+            imageCell.append(image);
+            row.append(imageCell);
+
+            ["item", "category", "location"].forEach((field) => {
+                const cell = document.createElement("td");
+                cell.textContent = data.get(field);
+                row.append(cell);
+            });
+
+            const conditionCell = document.createElement("td");
+            const badge = document.createElement("span");
+            badge.className = "condition";
+            badge.textContent = data.get("condition");
+            conditionCell.append(badge);
+            row.append(conditionCell);
+
+            const priceCell = document.createElement("td");
+            priceCell.className = "price";
+            priceCell.textContent = `₹${Number(data.get("price")).toLocaleString("en-IN")}`;
+            row.append(priceCell);
+
+            table.prepend(row);
+            form.reset();
+        });
+    </script>
+</body>
+</html>

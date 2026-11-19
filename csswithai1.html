@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Classified Listings | CSS with AI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    :root {
+      --ink:#172033; --muted:#718096; --brand:#6558e8; --brand-dark:#5145cf;
+      --line:#e8eaf2; --surface:#fff; --bg:#f5f6fb; --green:#15966b;
+    }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:Inter,Arial,sans-serif; background:var(--bg); color:var(--ink); }
+    .topbar { background:#fff; border-bottom:1px solid var(--line); }
+    .nav { max-width:1180px; margin:auto; padding:17px 22px; display:flex; align-items:center; justify-content:space-between; gap:18px; }
+    .logo { display:flex; align-items:center; gap:10px; font-size:20px; font-weight:800; letter-spacing:-.5px; }
+    .logo-mark { width:38px; height:38px; display:grid; place-items:center; border-radius:12px; color:#fff; background:linear-gradient(135deg,#776cf2,#5145cf); }
+    .nav-note { color:var(--muted); font-size:13px; }
+    .hero { background:linear-gradient(120deg,#24205c,#5145cf 60%,#8277f3); color:white; padding:42px 22px 72px; }
+    .hero-inner { max-width:1180px; margin:auto; }
+    .eyebrow { color:#d8d5ff; text-transform:uppercase; letter-spacing:2px; font-size:11px; font-weight:700; }
+    .hero h1 { margin:10px 0 9px; font-size:clamp(28px,4vw,42px); letter-spacing:-1.5px; }
+    .hero p { margin:0; color:#e4e2ff; font-size:15px; }
+    .wrap { max-width:1180px; margin:-42px auto 60px; padding:0 22px; position:relative; }
+    .panel { background:var(--surface); border:1px solid var(--line); border-radius:18px; box-shadow:0 14px 40px rgba(30,35,80,.08); }
+    .form-panel { padding:25px; }
+    .section-heading { display:flex; align-items:center; gap:10px; margin:0 0 20px; font-size:18px; }
+    .section-heading i { color:var(--brand); }
+    .form-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px; }
+    .field { display:flex; flex-direction:column; gap:7px; }
+    .field.full { grid-column:1/-1; }
+    label { font-size:12px; font-weight:700; color:#46516a; }
+    input, select, textarea { width:100%; border:1px solid #dfe3ee; background:#fbfcff; border-radius:10px; padding:12px 13px; color:var(--ink); font:inherit; font-size:13px; outline:none; transition:.2s; }
+    input:focus,select:focus,textarea:focus { border-color:var(--brand); box-shadow:0 0 0 3px rgba(101,88,232,.12); }
+    textarea { min-height:82px; resize:vertical; }
+    .upload-box { border:1.5px dashed #c9cce0; background:#fafaff; border-radius:12px; padding:16px; display:flex; align-items:center; gap:13px; }
+    .upload-box i { font-size:22px; color:var(--brand); }
+    .upload-box small { display:block; color:var(--muted); margin-top:4px; }
+    .upload-box input { border:0; padding:0; background:transparent; box-shadow:none; }
+    .actions { display:flex; justify-content:flex-end; gap:10px; margin-top:20px; }
+    button { border:0; border-radius:10px; padding:12px 18px; font:inherit; font-size:13px; font-weight:700; cursor:pointer; }
+    .btn-secondary { background:#f0f1f7; color:#586078; }
+    .btn-primary { background:var(--brand); color:white; box-shadow:0 7px 16px rgba(101,88,232,.2); }
+    .btn-primary:hover { background:var(--brand-dark); }
+    .listings { margin-top:28px; padding:23px; }
+    .list-head { display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; margin-bottom:17px; }
+    .list-head .section-heading { margin:0; }
+    .search { max-width:270px; position:relative; }
+    .search i { position:absolute; left:13px; top:13px; color:#9299ac; }
+    .search input { padding-left:36px; background:#fff; }
+    .table-wrap { overflow-x:auto; }
+    table { width:100%; border-collapse:collapse; min-width:690px; }
+    th { text-align:left; color:#8991a5; text-transform:uppercase; letter-spacing:.7px; font-size:10px; padding:12px 10px; border-bottom:1px solid var(--line); }
+    td { padding:14px 10px; border-bottom:1px solid #f0f1f6; font-size:12px; vertical-align:middle; }
+    tr:last-child td { border-bottom:0; }
+    .item { display:flex; align-items:center; gap:11px; min-width:180px; }
+    .thumb { width:54px; height:46px; border-radius:9px; object-fit:cover; background:#e9eafa; }
+    .item strong { display:block; font-size:12px; margin-bottom:4px; }
+    .item small { color:var(--muted); font-size:10px; }
+    .price { font-weight:800; color:#242c42; white-space:nowrap; }
+    .tag { display:inline-flex; align-items:center; gap:5px; border-radius:30px; padding:6px 9px; background:#eaf8f2; color:var(--green); font-size:10px; font-weight:700; white-space:nowrap; }
+    .tag::before { content:""; width:5px; height:5px; border-radius:50%; background:currentColor; }
+    .delete { background:#fff0f0; color:#d44b55; padding:8px 10px; }
+    .empty { text-align:center; padding:26px; color:var(--muted); font-size:13px; }
+    footer { text-align:center; color:#9aa1b2; font-size:11px; padding:0 20px 30px; }
+    @media(max-width:650px) {
+      .nav { padding:14px 17px; } .nav-note { display:none; }
+      .hero { padding:32px 18px 65px; } .wrap { padding:0 13px; }
+      .form-panel,.listings { padding:18px; } .form-grid { grid-template-columns:1fr; }
+      .field.full { grid-column:auto; } .actions button { flex:1; }
+      .list-head { align-items:stretch; } .search { max-width:none; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <nav class="nav">
+      <div class="logo"><span class="logo-mark"><i class="fa-solid fa-layer-group"></i></span> CSS <span style="color:#6558e8">with AI</span></div>
+      <div class="nav-note"><i class="fa-solid fa-circle-check" style="color:#15966b"></i> Simple classified listing dashboard</div>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="eyebrow">Organise • Publish • Discover</div>
+      <h1>Classified Listing Manager</h1>
+      <p>Add a listing using the form, then view it instantly in the table below.</p>
+    </div>
+  </section>
+
+  <main class="wrap">
+    <section class="panel form-panel">
+      <h2 class="section-heading"><i class="fa-solid fa-square-plus"></i> Create a new listing</h2>
+      <form id="listingForm">
+        <div class="form-grid">
+          <div class="field">
+            <label for="title">LISTING TITLE *</label>
+            <input id="title" name="title" placeholder="e.g. Modern apartment for rent" required>
+          </div>
+          <div class="field">
+            <label for="category">CATEGORY *</label>
+            <select id="category" name="category" required>
+              <option value="">Choose a category</option>
+              <option>Property</option><option>Vehicles</option><option>Electronics</option>
+              <option>Fashion</option><option>Furniture</option><option>Services</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="price">PRICE (₹) *</label>
+            <input id="price" name="price" type="number" min="0" placeholder="Enter price" required>
+          </div>
+          <div class="field">
+            <label for="location">LOCATION *</label>
+            <input id="location" name="location" placeholder="City or area" required>
+          </div>
+          <div class="field full">
+            <label for="description">DESCRIPTION</label>
+            <textarea id="description" name="description" placeholder="Write a short description of your listing..."></textarea>
+          </div>
+          <div class="field full">
+            <label for="photo">LISTING IMAGE</label>
+            <div class="upload-box">
+              <i class="fa-regular fa-image"></i>
+              <div style="flex:1"><strong style="font-size:12px">Add a photo</strong><small>Choose an image from your device (optional)</small></div>
+              <input id="photo" name="photo" type="file" accept="image/*">
+            </div>
+          </div>
+        </div>
+        <div class="actions">
+          <button class="btn-secondary" type="reset"><i class="fa-solid fa-rotate-left"></i> Clear</button>
+          <button class="btn-primary" type="submit"><i class="fa-solid fa-plus"></i> Add listing</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="panel listings">
+      <div class="list-head">
+        <h2 class="section-heading"><i class="fa-solid fa-table-list"></i> Recent listings</h2>
+        <div class="search"><i class="fa-solid fa-magnifying-glass"></i><input id="searchInput" type="search" placeholder="Search listings..."></div>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Listing</th><th>Category</th><th>Price</th><th>Location</th><th>Status</th><th>Action</th></tr></thead>
+          <tbody id="listingRows">
+            <tr>
+              <td><div class="item"><img class="thumb" src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=160&h=120&fit=crop" alt="Modern house"><div><strong>Beautiful modern home</strong><small>Bright and spacious property</small></div></div></td>
+              <td>Property</td><td class="price">₹85,00,000</td><td>Chennai</td><td><span class="tag">Active</span></td><td>—</td>
+            </tr>
+            <tr>
+              <td><div class="item"><img class="thumb" src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=160&h=120&fit=crop" alt="Laptop"><div><strong>Work laptop</strong><small>Lightweight and reliable</small></div></div></td>
+              <td>Electronics</td><td class="price">₹42,000</td><td>Bengaluru</td><td><span class="tag">Active</span></td><td>—</td>
+            </tr>
+            <tr>
+              <td><div class="item"><img class="thumb" src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=160&h=120&fit=crop" alt="Sofa"><div><strong>Contemporary sofa</strong><small>Comfortable living room set</small></div></div></td>
+              <td>Furniture</td><td class="price">₹18,500</td><td>Hyderabad</td><td><span class="tag">Active</span></td><td>—</td>
+            </tr>
+          </tbody>
+        </table>
+        <div id="emptyState" class="empty" hidden><i class="fa-regular fa-folder-open"></i><br>No listings found. Try another search or add a listing.</div>
+      </div>
+    </section>
+  </main>
+
+  <footer>© 2026 CSS with AI · Classified Listing UI</footer>
+
+  <script>
+    const form = document.getElementById('listingForm');
+    const rows = document.getElementById('listingRows');
+    const searchInput = document.getElementById('searchInput');
+    const emptyState = document.getElementById('emptyState');
+
+    function updateEmptyState() {
+      emptyState.hidden = rows.querySelectorAll('tr:not([hidden])').length !== 0;
+    }
+
+    form.addEventListener('submit', function(event) {
+      event.preventDefault();
+      const data = new FormData(form);
+      const title = data.get('title').trim();
+      const category = data.get('category');
+      const price = Number(data.get('price'));
+      const location = data.get('location').trim();
+      const description = data.get('description').trim();
+      const file = data.get('photo');
+
+      let imageUrl = 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=160&h=120&fit=crop';
+      if (file && file.size > 0) imageUrl = URL.createObjectURL(file);
+
+      const tr = document.createElement('tr');
+      const cells = [title, category, `₹${price.toLocaleString('en-IN')}`, location];
+      const itemCell = document.createElement('td');
+      const item = document.createElement('div'); item.className = 'item';
+      const img = document.createElement('img'); img.className = 'thumb'; img.src = imageUrl; img.alt = title;
+      const details = document.createElement('div');
+      const strong = document.createElement('strong'); strong.textContent = title;
+      const small = document.createElement('small'); small.textContent = description || 'New classified listing';
+      details.append(strong, small); item.append(img, details); itemCell.append(item);
+      tr.append(itemCell);
+
+      cells.slice(1).forEach((value, index) => {
+        const td = document.createElement('td');
+        td.textContent = value;
+        if (index === 2) td.className = 'price';
+        tr.append(td);
+      });
+
+      const status = document.createElement('td');
+      const tag = document.createElement('span'); tag.className = 'tag'; tag.textContent = 'Active';
+      status.append(tag); tr.append(status);
+
+      const action = document.createElement('td');
+      const remove = document.createElement('button'); remove.type = 'button';
+      remove.className = 'delete'; remove.setAttribute('aria-label', 'Delete listing');
+      remove.innerHTML = '<i class="fa-solid fa-trash"></i>';
+      remove.addEventListener('click', () => { tr.remove(); updateEmptyState(); });
+      action.append(remove); tr.append(action);
+
+      rows.prepend(tr);
+      form.reset();
+      filterRows();
+    });
+
+    function filterRows() {
+      const term = searchInput.value.toLowerCase().trim();
+      rows.querySelectorAll('tr').forEach(row => {
+        row.hidden = !row.textContent.toLowerCase().includes(term);
+      });
+      updateEmptyState();
+    }
+    searchInput.addEventListener('input', filterRows);
+  </script>
+</body>
+</html>

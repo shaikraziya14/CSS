@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>College Admission Applications</title>
+    <style>
+        * { box-sizing: border-box; }
+
+        body {
+            margin: 0;
+            padding: 28px 16px;
+            background: #f3f5f9;
+            color: #202b3c;
+            font-family: Arial, sans-serif;
+        }
+
+        .page { max-width: 1100px; margin: auto; }
+
+        .hero {
+            min-height: 210px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 30px;
+            margin-bottom: 24px;
+            border-radius: 18px;
+            color: white;
+            background:
+                linear-gradient(90deg, rgba(14, 30, 58, .92), rgba(14, 30, 58, .48)),
+                url("https://images.unsplash.com/photo-1562774053-701939374585?w=1400&h=500&fit=crop")
+                center / cover;
+        }
+
+        .college-icon {
+            width: 70px;
+            height: 70px;
+            flex: 0 0 70px;
+            display: grid;
+            place-items: center;
+            border: 1px solid #ffffff66;
+            border-radius: 18px;
+            background: #ffffff20;
+            font-size: 36px;
+        }
+
+        .hero h1 { margin: 0 0 8px; font-size: 30px; }
+        .hero p { margin: 0; color: #e2e8f0; }
+
+        .panel {
+            padding: 24px;
+            margin-bottom: 24px;
+            border: 1px solid #e3e8ef;
+            border-radius: 16px;
+            background: white;
+            box-shadow: 0 8px 22px #172b4d0d;
+        }
+
+        .panel h2 { margin: 0 0 20px; font-size: 20px; }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 16px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 7px;
+            color: #344054;
+            font-size: 14px;
+            font-weight: 700;
+        }
+
+        input, select {
+            width: 100%;
+            min-height: 44px;
+            padding: 10px 12px;
+            border: 1px solid #d0d5dd;
+            border-radius: 9px;
+            background: white;
+            color: #202b3c;
+            font: inherit;
+        }
+
+        input:focus, select:focus {
+            outline: 3px solid #dbeafe;
+            border-color: #3478d4;
+        }
+
+        .full-width { grid-column: 1 / -1; }
+
+        button {
+            min-height: 44px;
+            padding: 0 18px;
+            border: 0;
+            border-radius: 9px;
+            background: #2459a6;
+            color: white;
+            font: inherit;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        button:hover { background: #194783; }
+
+        .table-wrap {
+            overflow-x: auto;
+            border: 1px solid #e4e9f2;
+            border-radius: 14px;
+        }
+
+        table {
+            width: 100%;
+            min-width: 760px;
+            border-collapse: separate;
+            border-spacing: 0;
+            text-align: left;
+        }
+
+        th, td {
+            padding: 15px 16px;
+            border-bottom: 1px solid #edf0f5;
+            white-space: nowrap;
+        }
+
+        th {
+            background: #192b49;
+            color: #fff;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: .06em;
+        }
+
+        td {
+            background: #fff;
+            color: #344054;
+            font-size: 14px;
+        }
+
+        tbody tr:nth-child(even) td {
+            background: #f8faff;
+        }
+
+        tbody tr:hover td {
+            background: #edf4ff;
+        }
+
+        tbody tr:last-child td {
+            border-bottom: 0;
+        }
+
+        .student {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 600;
+        }
+
+        .avatar {
+            width: 40px;
+            height: 40px;
+            display: grid;
+            place-items: center;
+            border: 2px solid #fff;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #4f8df7, #7048e8);
+            box-shadow: 0 2px 6px #34405430;
+            color: #fff;
+            font-size: 13px;
+            font-weight: 700;
+        }
+
+        .status {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 11px;
+            border-radius: 20px;
+            background: #fff4d6;
+            color: #8a5a00;
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+        .status::before {
+            content: "";
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: currentColor;
+        }
+
+        @media (max-width: 650px) {
+            .hero { min-height: 180px; padding: 22px; }
+            .hero h1 { font-size: 24px; }
+            .college-icon { width: 56px; height: 56px; flex-basis: 56px; font-size: 28px; }
+            .panel { padding: 18px 14px; }
+            .form-grid { grid-template-columns: 1fr; }
+            .full-width { grid-column: auto; }
+        }
+    </style>
+</head>
+<body>
+    <main class="page">
+        <header class="hero">
+            <div class="college-icon" aria-hidden="true">🎓</div>
+            <div>
+                <h1>College Admission</h1>
+                <p>Submit an application and review student admissions below.</p>
+            </div>
+        </header>
+
+        <section class="panel">
+            <h2>📝 Student application form</h2>
+            <form id="application-form" class="form-grid">
+                <div>
+                    <label for="name">Student name</label>
+                    <input id="name" name="name" autocomplete="name" required>
+                </div>
+                <div>
+                    <label for="email">Email address</label>
+                    <input id="email" name="email" type="email" autocomplete="email" required>
+                </div>
+                <div>
+                    <label for="phone">Phone number</label>
+                    <input id="phone" name="phone" type="tel" autocomplete="tel" required>
+                </div>
+                <div>
+                    <label for="dob">Date of birth</label>
+                    <input id="dob" name="dob" type="date" required>
+                </div>
+                <div>
+                    <label for="course">Course applied for</label>
+                    <select id="course" name="course" required>
+                        <option value="">Select a course</option>
+                        <option>Bachelor of Computer Science</option>
+                        <option>Bachelor of Business Administration</option>
+                        <option>Bachelor of Commerce</option>
+                        <option>Bachelor of Arts</option>
+                        <option>Other</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="qualification">Previous qualification</label>
+                    <input id="qualification" name="qualification" placeholder="e.g. Intermediate / 12th" required>
+                </div>
+                <div class="full-width">
+                    <button type="submit">＋ Submit application</button>
+                </div>
+            </form>
+        </section>
+
+        <section class="panel">
+            <h2>▦ Submitted applications</h2>
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Student</th>
+                            <th>Course</th>
+                            <th>Email</th>
+                            <th>Phone</th>
+                            <th>Qualification</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="applications">
+                        <tr>
+                            <td>
+                                <div class="student">
+                                    <span class="avatar">AR</span>
+                                    <span>Ayesha Rahman</span>
+                                </div>
+                            </td>
+                            <td>Bachelor of Computer Science</td>
+                            <td>ayesha@example.com</td>
+                            <td>9876543210</td>
+                            <td>Intermediate / 12th</td>
+                            <td><span class="status">Under review</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        const form = document.getElementById("application-form");
+        const applications = document.getElementById("applications");
+
+        form.addEventListener("submit", (event) => {
+            event.preventDefault();
+
+            const data = new FormData(form);
+            const name = String(data.get("name")).trim();
+            const initials = name
+                .split(/\s+/)
+                .slice(0, 2)
+                .map((part) => part[0].toUpperCase())
+                .join("");
+
+            const row = document.createElement("tr");
+            const studentCell = document.createElement("td");
+            const student = document.createElement("div");
+            const avatar = document.createElement("span");
+            const studentName = document.createElement("span");
+
+            student.className = "student";
+            avatar.className = "avatar";
+            avatar.textContent = initials;
+            studentName.textContent = name;
+            student.append(avatar, studentName);
+            studentCell.append(student);
+            row.append(studentCell);
+
+            ["course", "email", "phone", "qualification"].forEach((field) => {
+                const cell = document.createElement("td");
+                cell.textContent = data.get(field);
+                row.append(cell);
+            });
+
+            const statusCell = document.createElement("td");
+            const status = document.createElement("span");
+            status.className = "status";
+            status.textContent = "Under review";
+            statusCell.append(status);
+            row.append(statusCell);
+
+            applications.prepend(row);
+            form.reset();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>index page</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            margin: 0;
+            padding: 48px 24px 20px;
+            display: flex;
+            flex-direction: column;
+            color: #f8fafc;
+            font-family: "Segoe UI", Arial, sans-serif;
+            background:
+                radial-gradient(ellipse at 15% 15%, #2563eb55, transparent 38%),
+                radial-gradient(ellipse at 85% 70%, #9333ea44, transparent 40%),
+                linear-gradient(135deg, #0b1224, #172554 55%, #111827);
+        }
+
+        h1 {
+            margin: 0 auto 34px;
+            color: #fff;
+            font-size: clamp(42px, 8vw, 72px);
+            font-weight: 800;
+            letter-spacing: 8px;
+            text-align: center;
+            text-shadow: 0 0 30px #60a5fa88;
+        }
+
+        header {
+            width: min(100%, 1050px);
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+            gap: 18px;
+        }
+
+        header a {
+            min-height: 74px;
+            padding: 18px 46px 18px 20px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            border: 1px solid #ffffff30;
+            border-radius: 16px;
+            background: linear-gradient(135deg, #ffffff1c, #ffffff08);
+            box-shadow: 0 10px 30px #00000020, inset 0 1px #ffffff20;
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            color: #eaf2ff;
+            font-size: 15px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: transform .25s ease, border-color .25s ease,
+                        background .25s ease, box-shadow .25s ease;
+        }
+
+        header a::after {
+            content: "↗";
+            position: absolute;
+            right: 18px;
+            color: #93c5fd;
+            font-size: 20px;
+            transition: transform .25s ease;
+        }
+
+        header a:hover {
+            transform: translateY(-5px);
+            border-color: #93c5fd99;
+            background: linear-gradient(135deg, #3b82f633, #a855f722);
+            box-shadow: 0 16px 36px #00000040, 0 0 20px #60a5fa22;
+        }
+
+        header a:hover::after {
+            transform: translate(3px, -3px);
+        }
+
+        header a:focus-visible {
+            outline: 3px solid #93c5fd;
+            outline-offset: 4px;
+        }
+
+        footer {
+            margin-top: auto;
+            padding-top: 40px;
+            color: #cbd5e1;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        footer p {
+            margin-bottom: 0;
+        }
+
+        @media (max-width: 500px) {
+            body {
+                padding: 32px 16px 16px;
+            }
+
+            header {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+
+            header a {
+                min-height: 62px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                transition-duration: .01ms !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <h1>CSS</h1>
+    <header>
+        
+        <a href="class.html">class.page</a>
+        <a href="class2.html">class2 page</a>
+        <a href="class3. html">class3 page</a>
+        <a href="college_application_form (1).html">college_application_form page</a>
+        <a href="college_application_form.html"> college_application_form page</a>
+        <a href="csswithai.html"> csswithai page</a>
+        <a href="csswithai1.html">csswithai1 page</a>
+        <a href="csswithai2.html">csswithai2 page</a>
+        <a href="csswithai3.html">csswithai3 page</a>
+        <a href="data.html">data page</a>
+        <a href="data2.html">data2 page</a>
+        <a href="data3.html">data3 page</a>
+        <a href="external.css">external page</a>
+        <a href="external.html"> external page</a>
+        <a href="external3.css"> external3 page</a>
+        <a href="external3.html">external3 page</a>
+        <a href="index.html">index page</a>
+        <a href="internal.html"> internal page</a>
+        <a href="internal2.html">internal2 page</a>
+    </header>
+    <footer>
+        <p>
+            @Design by raziya
+        </p>
+    </footer>
+
+</body>
+
+</html>
