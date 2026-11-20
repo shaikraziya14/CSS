@@ -1,119 +1,967 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>College Application Portal</title>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-<style>
-:root{--blue:#4361ee;--purple:#7557e8;--ink:#18233b;--muted:#77829a;--line:#e7eaf2;--bg:#f4f6fc;--green:#14845e}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:"DM Sans",sans-serif}
-header{background:#fff;border-bottom:1px solid var(--line)}.nav{max-width:1180px;margin:auto;padding:15px 24px;display:flex;justify-content:space-between;align-items:center}.brand{font:800 19px Manrope;display:flex;align-items:center;gap:10px}.brand i{background:linear-gradient(135deg,var(--blue),var(--purple));color:white;padding:12px;border-radius:12px}.nav small{color:var(--muted)}
-.hero{background:linear-gradient(115deg,#172554,#3449a5 60%,#7259db);color:white;padding:38px 24px 72px}.hero-in{max-width:1180px;margin:auto;display:flex;justify-content:space-between;align-items:center}.hero h1{font:800 clamp(26px,4vw,39px) Manrope;margin:8px 0}.hero p{color:#dce4ff;font-size:14px;margin:0}.eyebrow{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#c6d2ff}.hero-art{font-size:70px;margin-right:5%;opacity:.9}
-main{max-width:1180px;margin:-38px auto 50px;padding:0 24px;position:relative}.card{background:white;border:1px solid var(--line);border-radius:19px;box-shadow:0 12px 35px #1f2d5a12;padding:25px;margin-bottom:25px}.heading{display:flex;align-items:center;gap:11px;margin:0 0 21px;font:700 18px Manrope}.heading i{width:36px;height:36px;border-radius:11px;background:#eef0ff;color:var(--blue);display:grid;place-items:center}
-.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}.field{display:flex;flex-direction:column;gap:7px}.wide{grid-column:span 2}label{font-size:11px;font-weight:700;color:#526079;letter-spacing:.4px}input,select,textarea{width:100%;border:1px solid #dfe4ef;border-radius:10px;padding:12px 13px;background:#fbfcff;font:13px "DM Sans";color:var(--ink);outline:none}input:focus,select:focus,textarea:focus{border-color:var(--blue);box-shadow:0 0 0 3px #4361ee18}textarea{min-height:75px;resize:vertical}
-.upload{border:1.5px dashed #cbd3e5;border-radius:12px;padding:12px;display:flex;align-items:center;gap:10px;background:#fafbff}.upload i{background:#eeefff;color:var(--purple);padding:12px;border-radius:10px}.upload input{max-width:180px;border:0;background:transparent;padding:4px;box-shadow:none;font-size:11px}.upload-text{flex:1;font-size:12px;font-weight:700}.upload-text small{display:block;color:var(--muted);font-size:10px;margin-top:3px}
-.actions{display:flex;justify-content:flex-end;gap:10px;margin-top:20px}.btn{border:0;border-radius:10px;padding:12px 17px;font:700 12px "DM Sans";cursor:pointer}.light{background:#f0f2f8;color:#56617a}.primary{background:linear-gradient(110deg,var(--blue),var(--purple));color:white;box-shadow:0 7px 16px #4361ee30}
-.table-head{display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:17px}.table-head .heading{margin:0}.search{position:relative;width:min(270px,100%)}.search i{position:absolute;left:13px;top:13px;color:#929bb0}.search input{padding-left:36px;background:white}
-.table-wrap{overflow-x:auto}table{width:100%;min-width:780px;border-collapse:collapse}th{text-align:left;padding:12px 10px;color:#8993a8;font-size:10px;letter-spacing:.7px;border-bottom:1px solid var(--line)}td{padding:13px 10px;border-bottom:1px solid #eff1f6;font-size:12px;vertical-align:middle}.student{display:flex;align-items:center;gap:10px;min-width:190px}.avatar{width:43px;height:43px;object-fit:cover;border-radius:12px;background:#eef0ff}.student strong{display:block}.student small{display:block;color:var(--muted);font-size:10px;margin-top:4px}.course{background:#f0efff;color:#6452ce;padding:6px 9px;border-radius:20px;font-size:10px;font-weight:700}.status{background:#eaf8f1;color:var(--green);padding:6px 9px;border-radius:20px;font-size:10px;font-weight:700}.action{border:0;border-radius:8px;background:#fff0f0;color:#d34f5c;padding:8px 10px;cursor:pointer}.empty{text-align:center;padding:25px;color:var(--muted);font-size:13px}footer{text-align:center;color:#9aa3b6;font-size:11px;padding:0 15px 25px}
-@media(max-width:800px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.hero-art{font-size:50px}}@media(max-width:560px){.nav{padding:13px 16px}.nav small,.hero-art{display:none}.hero{padding:30px 17px 65px}main{padding:0 12px}.card{padding:17px}.grid{grid-template-columns:1fr}.wide{grid-column:auto}.upload{flex-wrap:wrap}.upload input{width:100%;max-width:none}.actions .btn{flex:1}.search{width:100%}}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>College Application Portal</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    :root {
+      --blue: #4361ee;
+      --purple: #7557e8;
+      --ink: #18233b;
+      --muted: #77829a;
+      --line: #e7eaf2;
+      --bg: #f4f6fc;
+      --green: #14845e
+    }
 
-/* Color themes and refreshed visual styling */
-:root{--blue:#4361ee;--purple:#7557e8;--ink:#18233b;--muted:#77829a;--line:#e7eaf2;--bg:#f4f6fc;--green:#14845e;--hero1:#172554;--hero2:#3449a5;--hero3:#7259db;--tint:#eef0ff;--shadow:rgba(31,45,90,.08)}
-body{background:radial-gradient(circle at 8% 12%,#e9edff 0,transparent 28%),radial-gradient(circle at 94% 32%,#f0eaff 0,transparent 25%),var(--bg)}
-.hero{background:linear-gradient(115deg,var(--hero1),var(--hero2) 60%,var(--hero3));position:relative;overflow:hidden}
-.hero:after{content:"";position:absolute;width:310px;height:310px;border:1px solid #ffffff26;border-radius:50%;right:7%;top:-180px;box-shadow:0 0 0 28px #ffffff0a,0 0 0 58px #ffffff08}
-.card{box-shadow:0 15px 42px var(--shadow);transition:transform .2s,box-shadow .2s}
-.card:hover{box-shadow:0 18px 48px var(--shadow)}
-.heading i{background:var(--tint);color:var(--blue)}
-.brand i{background:linear-gradient(135deg,var(--blue),var(--purple))}
-.btn.primary,.primary{background:linear-gradient(110deg,var(--blue),var(--purple))}
-input:focus,select:focus,textarea:focus{border-color:var(--blue);box-shadow:0 0 0 3px color-mix(in srgb,var(--blue) 13%,transparent)}
-.nav-right{display:flex;align-items:center;gap:18px}
-.theme-picker{display:flex;align-items:center;gap:7px;padding:6px 9px;border:1px solid var(--line);border-radius:30px;background:#fff}
-.swatch{width:19px;height:19px;border:2px solid #fff;border-radius:50%;cursor:pointer;box-shadow:0 0 0 1px #d8ddeb}
-.swatch.active{box-shadow:0 0 0 2px var(--ink);transform:scale(1.12)}
-.swatch[data-theme=blue]{background:linear-gradient(135deg,#4361ee,#7557e8)}
-.swatch[data-theme=emerald]{background:linear-gradient(135deg,#059669,#14b8a6)}
-.swatch[data-theme=sunset]{background:linear-gradient(135deg,#f97316,#eab308)}
-.swatch[data-theme=rose]{background:linear-gradient(135deg,#e11d48,#a855f7)}
-.swatch[data-theme=dark]{background:linear-gradient(135deg,#1e293b,#475569)}
-.style-note{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 18px;margin-bottom:16px;border:1px solid var(--line);border-radius:15px;background:linear-gradient(110deg,#fff,#f7f8ff);box-shadow:0 7px 22px #26345b08}
-.style-note>div{display:flex;align-items:center;gap:11px}.style-icon{width:36px;height:36px;border-radius:11px;background:var(--tint);color:var(--blue);display:grid;place-items:center}
-.style-note strong{display:block;font-size:12px}.style-note small{display:block;color:var(--muted);font-size:10px;margin-top:3px}
-.live-pill{font-size:10px;color:var(--green);background:#eaf8f1;border-radius:30px;padding:7px 10px;white-space:nowrap}.live-pill i{font-size:7px;margin-right:4px}
-.upload{transition:.2s}.upload:hover{border-color:var(--blue);background:var(--tint)}
-tbody tr{transition:background .15s}tbody tr:hover{background:#fafbff}
-.course{background:var(--tint);color:var(--blue)}
-.action{transition:.15s}.action:hover{background:#ffe0e2;transform:translateY(-1px)}
+    * {
+      box-sizing: border-box
+    }
 
-/* Default pink theme */
-body[data-theme=rose]{background:radial-gradient(circle at 8% 12%,#ffe4ef 0,transparent 30%),radial-gradient(circle at 94% 32%,#fce7f3 0,transparent 27%),#fff7fb}
-body[data-theme=rose] header{background:#fffafd}
-body[data-theme=rose] .style-note{background:linear-gradient(110deg,#fffafd,#fff0f6);border-color:#f8cddd}
-body[data-theme=rose] tbody tr:hover{background:#fff6fa}
-body[data-theme=rose] .status{background:#fce7f3;color:#be185d}
-body[data-theme=rose] .upload{background:#fff8fb}
-\n/* Theme palettes */
-body[data-theme=emerald]{--blue:#059669;--purple:#0d9488;--hero1:#064e3b;--hero2:#047857;--hero3:#14b8a6;--tint:#e6f8f2;--shadow:rgba(5,100,75,.09)}
-body[data-theme=sunset]{--blue:#ea580c;--purple:#d97706;--hero1:#7c2d12;--hero2:#c2410c;--hero3:#f59e0b;--tint:#fff2e7;--shadow:rgba(180,83,9,.09)}
-body[data-theme=rose]{--blue:#e11d48;--purple:#a855f7;--hero1:#881337;--hero2:#be185d;--hero3:#9333ea;--tint:#fff0f5;--shadow:rgba(190,24,93,.09)}
-body[data-theme=dark]{--blue:#8b9cff;--purple:#a78bfa;--hero1:#0b1224;--hero2:#1e293b;--hero3:#334155;--tint:#28334b;--bg:#111827;--ink:#e8edf8;--muted:#a6b2c8;--line:#303b50;--shadow:rgba(0,0,0,.25);background:#111827}
-body[data-theme=dark] .top,body[data-theme=dark] .card,body[data-theme=dark] .theme-picker{background:#1b2638;border-color:#303b50}
-body[data-theme=dark] .style-note{background:#202c40;border-color:#303b50}
-body[data-theme=dark] input,body[data-theme=dark] select,body[data-theme=dark] textarea{background:#111c2d;color:#e8edf8;border-color:#3a4860}
-body[data-theme=dark] th{color:#a6b2c8}body[data-theme=dark] td{border-color:#303b50}
-body[data-theme=dark] tbody tr:hover{background:#202c40}body[data-theme=dark] .upload{background:#202c40;border-color:#46536b}
-body[data-theme=dark] .light{background:#334155;color:#e8edf8}body[data-theme=dark] .student small{color:#a6b2c8}
-@media(max-width:560px){.nav-right{gap:8px}.nav-right small{display:none}.theme-picker{gap:6px}.style-note{align-items:flex-start}.live-pill{font-size:9px}}
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: "DM Sans", sans-serif
+    }
 
-</style></head>
+    header {
+      background: #fff;
+      border-bottom: 1px solid var(--line)
+    }
+
+    .nav {
+      max-width: 1180px;
+      margin: auto;
+      padding: 15px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center
+    }
+
+    .brand {
+      font: 800 19px Manrope;
+      display: flex;
+      align-items: center;
+      gap: 10px
+    }
+
+    .brand i {
+      background: linear-gradient(135deg, var(--blue), var(--purple));
+      color: white;
+      padding: 12px;
+      border-radius: 12px
+    }
+
+    .nav small {
+      color: var(--muted)
+    }
+
+    .hero {
+      background: linear-gradient(115deg, #172554, #3449a5 60%, #7259db);
+      color: white;
+      padding: 38px 24px 72px
+    }
+
+    .hero-in {
+      max-width: 1180px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center
+    }
+
+    .hero h1 {
+      font: 800 clamp(26px, 4vw, 39px) Manrope;
+      margin: 8px 0
+    }
+
+    .hero p {
+      color: #dce4ff;
+      font-size: 14px;
+      margin: 0
+    }
+
+    .eyebrow {
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #c6d2ff
+    }
+
+    .hero-art {
+      font-size: 70px;
+      margin-right: 5%;
+      opacity: .9
+    }
+
+    main {
+      max-width: 1180px;
+      margin: -38px auto 50px;
+      padding: 0 24px;
+      position: relative
+    }
+
+    .card {
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: 19px;
+      box-shadow: 0 12px 35px #1f2d5a12;
+      padding: 25px;
+      margin-bottom: 25px
+    }
+
+    .heading {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      margin: 0 0 21px;
+      font: 700 18px Manrope
+    }
+
+    .heading i {
+      width: 36px;
+      height: 36px;
+      border-radius: 11px;
+      background: #eef0ff;
+      color: var(--blue);
+      display: grid;
+      place-items: center
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px
+    }
+
+    .field {
+      display: flex;
+      flex-direction: column;
+      gap: 7px
+    }
+
+    .wide {
+      grid-column: span 2
+    }
+
+    label {
+      font-size: 11px;
+      font-weight: 700;
+      color: #526079;
+      letter-spacing: .4px
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+      border: 1px solid #dfe4ef;
+      border-radius: 10px;
+      padding: 12px 13px;
+      background: #fbfcff;
+      font: 13px "DM Sans";
+      color: var(--ink);
+      outline: none
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      border-color: var(--blue);
+      box-shadow: 0 0 0 3px #4361ee18
+    }
+
+    textarea {
+      min-height: 75px;
+      resize: vertical
+    }
+
+    .upload {
+      border: 1.5px dashed #cbd3e5;
+      border-radius: 12px;
+      padding: 12px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: #fafbff
+    }
+
+    .upload i {
+      background: #eeefff;
+      color: var(--purple);
+      padding: 12px;
+      border-radius: 10px
+    }
+
+    .upload input {
+      max-width: 180px;
+      border: 0;
+      background: transparent;
+      padding: 4px;
+      box-shadow: none;
+      font-size: 11px
+    }
+
+    .upload-text {
+      flex: 1;
+      font-size: 12px;
+      font-weight: 700
+    }
+
+    .upload-text small {
+      display: block;
+      color: var(--muted);
+      font-size: 10px;
+      margin-top: 3px
+    }
+
+    .actions {
+      display: flex;
+      justify-content: flex-end;
+      gap: 10px;
+      margin-top: 20px
+    }
+
+    .btn {
+      border: 0;
+      border-radius: 10px;
+      padding: 12px 17px;
+      font: 700 12px "DM Sans";
+      cursor: pointer
+    }
+
+    .light {
+      background: #f0f2f8;
+      color: #56617a
+    }
+
+    .primary {
+      background: linear-gradient(110deg, var(--blue), var(--purple));
+      color: white;
+      box-shadow: 0 7px 16px #4361ee30
+    }
+
+    .table-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-bottom: 17px
+    }
+
+    .table-head .heading {
+      margin: 0
+    }
+
+    .search {
+      position: relative;
+      width: min(270px, 100%)
+    }
+
+    .search i {
+      position: absolute;
+      left: 13px;
+      top: 13px;
+      color: #929bb0
+    }
+
+    .search input {
+      padding-left: 36px;
+      background: white
+    }
+
+    .table-wrap {
+      overflow-x: auto
+    }
+
+    table {
+      width: 100%;
+      min-width: 780px;
+      border-collapse: collapse
+    }
+
+    th {
+      text-align: left;
+      padding: 12px 10px;
+      color: #8993a8;
+      font-size: 10px;
+      letter-spacing: .7px;
+      border-bottom: 1px solid var(--line)
+    }
+
+    td {
+      padding: 13px 10px;
+      border-bottom: 1px solid #eff1f6;
+      font-size: 12px;
+      vertical-align: middle
+    }
+
+    .student {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      min-width: 190px
+    }
+
+    .avatar {
+      width: 43px;
+      height: 43px;
+      object-fit: cover;
+      border-radius: 12px;
+      background: #eef0ff
+    }
+
+    .student strong {
+      display: block
+    }
+
+    .student small {
+      display: block;
+      color: var(--muted);
+      font-size: 10px;
+      margin-top: 4px
+    }
+
+    .course {
+      background: #f0efff;
+      color: #6452ce;
+      padding: 6px 9px;
+      border-radius: 20px;
+      font-size: 10px;
+      font-weight: 700
+    }
+
+    .status {
+      background: #eaf8f1;
+      color: var(--green);
+      padding: 6px 9px;
+      border-radius: 20px;
+      font-size: 10px;
+      font-weight: 700
+    }
+
+    .action {
+      border: 0;
+      border-radius: 8px;
+      background: #fff0f0;
+      color: #d34f5c;
+      padding: 8px 10px;
+      cursor: pointer
+    }
+
+    .empty {
+      text-align: center;
+      padding: 25px;
+      color: var(--muted);
+      font-size: 13px
+    }
+
+    footer {
+      text-align: center;
+      color: #9aa3b6;
+      font-size: 11px;
+      padding: 0 15px 25px
+    }
+
+    @media(max-width:800px) {
+      .grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr))
+      }
+
+      .hero-art {
+        font-size: 50px
+      }
+    }
+
+    @media(max-width:560px) {
+      .nav {
+        padding: 13px 16px
+      }
+
+      .nav small,
+      .hero-art {
+        display: none
+      }
+
+      .hero {
+        padding: 30px 17px 65px
+      }
+
+      main {
+        padding: 0 12px
+      }
+
+      .card {
+        padding: 17px
+      }
+
+      .grid {
+        grid-template-columns: 1fr
+      }
+
+      .wide {
+        grid-column: auto
+      }
+
+      .upload {
+        flex-wrap: wrap
+      }
+
+      .upload input {
+        width: 100%;
+        max-width: none
+      }
+
+      .actions .btn {
+        flex: 1
+      }
+
+      .search {
+        width: 100%
+      }
+    }
+
+    /* Color themes and refreshed visual styling */
+    :root {
+      --blue: #4361ee;
+      --purple: #7557e8;
+      --ink: #18233b;
+      --muted: #77829a;
+      --line: #e7eaf2;
+      --bg: #f4f6fc;
+      --green: #14845e;
+      --hero1: #172554;
+      --hero2: #3449a5;
+      --hero3: #7259db;
+      --tint: #eef0ff;
+      --shadow: rgba(31, 45, 90, .08)
+    }
+
+    body {
+      background: radial-gradient(circle at 8% 12%, #e9edff 0, transparent 28%), radial-gradient(circle at 94% 32%, #f0eaff 0, transparent 25%), var(--bg)
+    }
+
+    .hero {
+      background: linear-gradient(115deg, var(--hero1), var(--hero2) 60%, var(--hero3));
+      position: relative;
+      overflow: hidden
+    }
+
+    .hero:after {
+      content: "";
+      position: absolute;
+      width: 310px;
+      height: 310px;
+      border: 1px solid #ffffff26;
+      border-radius: 50%;
+      right: 7%;
+      top: -180px;
+      box-shadow: 0 0 0 28px #ffffff0a, 0 0 0 58px #ffffff08
+    }
+
+    .card {
+      box-shadow: 0 15px 42px var(--shadow);
+      transition: transform .2s, box-shadow .2s
+    }
+
+    .card:hover {
+      box-shadow: 0 18px 48px var(--shadow)
+    }
+
+    .heading i {
+      background: var(--tint);
+      color: var(--blue)
+    }
+
+    .brand i {
+      background: linear-gradient(135deg, var(--blue), var(--purple))
+    }
+
+    .btn.primary,
+    .primary {
+      background: linear-gradient(110deg, var(--blue), var(--purple))
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      border-color: var(--blue);
+      box-shadow: 0 0 0 3px color-mix(in srgb, var(--blue) 13%, transparent)
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 18px
+    }
+
+    .theme-picker {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      padding: 6px 9px;
+      border: 1px solid var(--line);
+      border-radius: 30px;
+      background: #fff
+    }
+
+    .swatch {
+      width: 19px;
+      height: 19px;
+      border: 2px solid #fff;
+      border-radius: 50%;
+      cursor: pointer;
+      box-shadow: 0 0 0 1px #d8ddeb
+    }
+
+    .swatch.active {
+      box-shadow: 0 0 0 2px var(--ink);
+      transform: scale(1.12)
+    }
+
+    .swatch[data-theme=blue] {
+      background: linear-gradient(135deg, #4361ee, #7557e8)
+    }
+
+    .swatch[data-theme=emerald] {
+      background: linear-gradient(135deg, #059669, #14b8a6)
+    }
+
+    .swatch[data-theme=sunset] {
+      background: linear-gradient(135deg, #f97316, #eab308)
+    }
+
+    .swatch[data-theme=rose] {
+      background: linear-gradient(135deg, #e11d48, #a855f7)
+    }
+
+    .swatch[data-theme=dark] {
+      background: linear-gradient(135deg, #1e293b, #475569)
+    }
+
+    .style-note {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 14px 18px;
+      margin-bottom: 16px;
+      border: 1px solid var(--line);
+      border-radius: 15px;
+      background: linear-gradient(110deg, #fff, #f7f8ff);
+      box-shadow: 0 7px 22px #26345b08
+    }
+
+    .style-note>div {
+      display: flex;
+      align-items: center;
+      gap: 11px
+    }
+
+    .style-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 11px;
+      background: var(--tint);
+      color: var(--blue);
+      display: grid;
+      place-items: center
+    }
+
+    .style-note strong {
+      display: block;
+      font-size: 12px
+    }
+
+    .style-note small {
+      display: block;
+      color: var(--muted);
+      font-size: 10px;
+      margin-top: 3px
+    }
+
+    .live-pill {
+      font-size: 10px;
+      color: var(--green);
+      background: #eaf8f1;
+      border-radius: 30px;
+      padding: 7px 10px;
+      white-space: nowrap
+    }
+
+    .live-pill i {
+      font-size: 7px;
+      margin-right: 4px
+    }
+
+    .upload {
+      transition: .2s
+    }
+
+    .upload:hover {
+      border-color: var(--blue);
+      background: var(--tint)
+    }
+
+    tbody tr {
+      transition: background .15s
+    }
+
+    tbody tr:hover {
+      background: #fafbff
+    }
+
+    .course {
+      background: var(--tint);
+      color: var(--blue)
+    }
+
+    .action {
+      transition: .15s
+    }
+
+    .action:hover {
+      background: #ffe0e2;
+      transform: translateY(-1px)
+    }
+
+    /* Default pink theme */
+    body[data-theme=rose] {
+      background: radial-gradient(circle at 8% 12%, #ffe4ef 0, transparent 30%), radial-gradient(circle at 94% 32%, #fce7f3 0, transparent 27%), #fff7fb
+    }
+
+    body[data-theme=rose] header {
+      background: #fffafd
+    }
+
+    body[data-theme=rose] .style-note {
+      background: linear-gradient(110deg, #fffafd, #fff0f6);
+      border-color: #f8cddd
+    }
+
+    body[data-theme=rose] tbody tr:hover {
+      background: #fff6fa
+    }
+
+    body[data-theme=rose] .status {
+      background: #fce7f3;
+      color: #be185d
+    }
+
+    body[data-theme=rose] .upload {
+      background: #fff8fb
+    }
+
+    \n
+
+    /* Theme palettes */
+    body[data-theme=emerald] {
+      --blue: #059669;
+      --purple: #0d9488;
+      --hero1: #064e3b;
+      --hero2: #047857;
+      --hero3: #14b8a6;
+      --tint: #e6f8f2;
+      --shadow: rgba(5, 100, 75, .09)
+    }
+
+    body[data-theme=sunset] {
+      --blue: #ea580c;
+      --purple: #d97706;
+      --hero1: #7c2d12;
+      --hero2: #c2410c;
+      --hero3: #f59e0b;
+      --tint: #fff2e7;
+      --shadow: rgba(180, 83, 9, .09)
+    }
+
+    body[data-theme=rose] {
+      --blue: #e11d48;
+      --purple: #a855f7;
+      --hero1: #881337;
+      --hero2: #be185d;
+      --hero3: #9333ea;
+      --tint: #fff0f5;
+      --shadow: rgba(190, 24, 93, .09)
+    }
+
+    body[data-theme=dark] {
+      --blue: #8b9cff;
+      --purple: #a78bfa;
+      --hero1: #0b1224;
+      --hero2: #1e293b;
+      --hero3: #334155;
+      --tint: #28334b;
+      --bg: #111827;
+      --ink: #e8edf8;
+      --muted: #a6b2c8;
+      --line: #303b50;
+      --shadow: rgba(0, 0, 0, .25);
+      background: #111827
+    }
+
+    body[data-theme=dark] .top,
+    body[data-theme=dark] .card,
+    body[data-theme=dark] .theme-picker {
+      background: #1b2638;
+      border-color: #303b50
+    }
+
+    body[data-theme=dark] .style-note {
+      background: #202c40;
+      border-color: #303b50
+    }
+
+    body[data-theme=dark] input,
+    body[data-theme=dark] select,
+    body[data-theme=dark] textarea {
+      background: #111c2d;
+      color: #e8edf8;
+      border-color: #3a4860
+    }
+
+    body[data-theme=dark] th {
+      color: #a6b2c8
+    }
+
+    body[data-theme=dark] td {
+      border-color: #303b50
+    }
+
+    body[data-theme=dark] tbody tr:hover {
+      background: #202c40
+    }
+
+    body[data-theme=dark] .upload {
+      background: #202c40;
+      border-color: #46536b
+    }
+
+    body[data-theme=dark] .light {
+      background: #334155;
+      color: #e8edf8
+    }
+
+    body[data-theme=dark] .student small {
+      color: #a6b2c8
+    }
+
+    @media(max-width:560px) {
+      .nav-right {
+        gap: 8px
+      }
+
+      .nav-right small {
+        display: none
+      }
+
+      .theme-picker {
+        gap: 6px
+      }
+
+      .style-note {
+        align-items: flex-start
+      }
+
+      .live-pill {
+        font-size: 9px
+      }
+    }
+  </style>
+</head>
+
 <body data-theme="rose">
-<header><div class="nav"><div class="brand"><i class="fa-solid fa-graduation-cap"></i> Campus<span style="color:#5d5be7">Connect</span></div><div class="nav-right"><div class="theme-picker" aria-label="Choose color theme">
-<button type="button" class="swatch" data-theme="blue" title="Blue theme" aria-label="Blue theme"></button>
-<button type="button" class="swatch" data-theme="emerald" title="Emerald theme" aria-label="Emerald theme"></button>
-<button type="button" class="swatch" data-theme="sunset" title="Sunset theme" aria-label="Sunset theme"></button>
-<button type="button" class="swatch active" data-theme="rose" title="Rose theme" aria-label="Rose theme"></button>
-<button type="button" class="swatch" data-theme="dark" title="Dark theme" aria-label="Dark theme"></button>
-</div><small><i class="fa-solid fa-shield-halved" style="color:#16865f"></i> College Admission Portal</small></div></div></header>
-<section class="hero"><div class="hero-in"><div><div class="eyebrow">Admissions • Student records</div><h1>College Application Form</h1><p>Register students and manage applications in one place.</p></div><div class="hero-art"><i class="fa-solid fa-building-columns"></i></div></div></section>
-<main>
-<section class="style-note"><div><span class="style-icon"><i class="fa-solid fa-palette"></i></span><div><strong>Make it your style</strong><small>Choose a color theme above. The whole application page updates instantly.</small></div></div><span class="live-pill"><i class="fa-solid fa-circle"></i> Live preview</span></section>
-<section class="card"><h2 class="heading"><i class="fa-solid fa-user-plus"></i> Student application details</h2>
-<form id="applicationForm"><div class="grid">
-<div class="field"><label for="studentName">STUDENT FULL NAME *</label><input id="studentName" required placeholder="Enter full name"></div>
-<div class="field"><label for="email">EMAIL ADDRESS *</label><input id="email" type="email" required placeholder="student@example.com"></div>
-<div class="field"><label for="phone">PHONE NUMBER *</label><input id="phone" type="tel" required placeholder="Enter phone number"></div>
-<div class="field"><label for="dob">DATE OF BIRTH *</label><input id="dob" type="date" required></div>
-<div class="field"><label for="gender">GENDER</label><select id="gender"><option value="">Select gender</option><option>Female</option><option>Male</option><option>Prefer not to say</option></select></div>
-<div class="field"><label for="course">COURSE APPLIED FOR *</label><select id="course" required><option value="">Choose course</option><option>B.Sc Computer Science</option><option>B.Com</option><option>B.A English</option><option>BBA</option><option>BCA</option><option>B.Tech</option><option>MBA</option></select></div>
-<div class="field"><label for="qualification">LAST QUALIFICATION *</label><select id="qualification" required><option value="">Select qualification</option><option>12th / Intermediate</option><option>Diploma</option><option>Undergraduate</option><option>Postgraduate</option></select></div>
-<div class="field"><label for="year">ADMISSION YEAR</label><select id="year"><option>2026-27</option><option>2027-28</option><option>2028-29</option></select></div>
-<div class="field"><label for="city">CITY *</label><input id="city" required placeholder="Enter city"></div>
-<div class="field wide"><label for="address">ADDRESS</label><textarea id="address" placeholder="House number, street, area..."></textarea></div>
-<div class="field"><label for="photo">STUDENT PHOTO</label><div class="upload"><i class="fa-regular fa-image"></i><div class="upload-text">Upload student photo<small>JPG or PNG · Optional</small></div><input id="photo" type="file" accept="image/*"></div></div>
-</div><div class="actions"><button class="btn light" type="reset"><i class="fa-solid fa-rotate-left"></i> Clear form</button><button class="btn primary" type="submit"><i class="fa-solid fa-paper-plane"></i> Submit application</button></div></form></section>
-<section class="card"><div class="table-head"><h2 class="heading"><i class="fa-solid fa-table-list"></i> Student applications</h2><div class="search"><i class="fa-solid fa-magnifying-glass"></i><input id="search" type="search" placeholder="Search name, course, city..."></div></div>
-<div class="table-wrap"><table><thead><tr><th>Student</th><th>Application ID</th><th>Course</th><th>Contact</th><th>City</th><th>Status</th><th>Action</th></tr></thead><tbody id="records">
-<tr><td><div class="student"><img class="avatar" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&h=100&fit=crop&crop=faces" alt="Student"><div><strong>Ananya Reddy</strong><small>ananya@example.com</small></div></div></td><td>APP-2026-001</td><td><span class="course">BCA</span></td><td>98765 43210</td><td>Chittoor</td><td><span class="status">Submitted</span></td><td><button class="action" onclick="this.closest('tr').remove();filterRows()" title="Delete"><i class="fa-solid fa-trash"></i></button></td></tr>
-<tr><td><div class="student"><img class="avatar" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop&crop=faces" alt="Student"><div><strong>Arjun Kumar</strong><small>arjun@example.com</small></div></div></td><td>APP-2026-002</td><td><span class="course">B.Com</span></td><td>91234 56780</td><td>Tirupati</td><td><span class="status">Submitted</span></td><td><button class="action" onclick="this.closest('tr').remove();filterRows()" title="Delete"><i class="fa-solid fa-trash"></i></button></td></tr>
-<tr><td><div class="student"><img class="avatar" src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&h=100&fit=crop&crop=faces" alt="Student"><div><strong>Meera Sharma</strong><small>meera@example.com</small></div></div></td><td>APP-2026-003</td><td><span class="course">B.Sc CS</span></td><td>99887 76655</td><td>Bengaluru</td><td><span class="status">Submitted</span></td><td><button class="action" onclick="this.closest('tr').remove();filterRows()" title="Delete"><i class="fa-solid fa-trash"></i></button></td></tr>
-</tbody></table><div id="empty" class="empty" hidden><i class="fa-regular fa-folder-open"></i><br>No applications found.</div></div></section></main>
-<footer>© 2026 CampusConnect · College Application Management</footer>
-<script>
-const form=document.getElementById('applicationForm'),records=document.getElementById('records'),search=document.getElementById('search'),empty=document.getElementById('empty');let nextId=4;
-function filterRows(){const q=search.value.toLowerCase().trim();[...records.rows].forEach(r=>r.hidden=!r.textContent.toLowerCase().includes(q));empty.hidden=[...records.rows].some(r=>!r.hidden)}
-search.addEventListener('input',filterRows);
-form.addEventListener('submit',e=>{e.preventDefault();const v=id=>document.getElementById(id).value.trim(),name=v('studentName'),email=v('email'),phone=v('phone'),course=v('course'),city=v('city'),file=document.getElementById('photo').files[0],src=file?URL.createObjectURL(file):'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&h=100&fit=crop&crop=faces';const tr=document.createElement('tr'),td=document.createElement('td'),student=document.createElement('div');student.className='student';const img=document.createElement('img');img.className='avatar';img.src=src;img.alt='Student photo';const info=document.createElement('div'),strong=document.createElement('strong'),small=document.createElement('small');strong.textContent=name;small.textContent=email;info.append(strong,small);student.append(img,info);td.append(student);tr.append(td);
-[`APP-2026-${String(nextId++).padStart(3,'0')}`,course,phone,city].forEach((value,i)=>{const cell=document.createElement('td');if(i===1){const tag=document.createElement('span');tag.className='course';tag.textContent=value;cell.append(tag)}else cell.textContent=value;tr.append(cell)});
-const st=document.createElement('td'),tag=document.createElement('span');tag.className='status';tag.textContent='Submitted';st.append(tag);tr.append(st);const ac=document.createElement('td'),del=document.createElement('button');del.className='action';del.type='button';del.title='Delete';del.innerHTML='<i class="fa-solid fa-trash"></i>';del.onclick=()=>{tr.remove();filterRows()};ac.append(del);tr.append(ac);records.prepend(tr);form.reset();filterRows()});
+  <header>
+    <div class="nav">
+      <div class="brand"><i class="fa-solid fa-graduation-cap"></i> Campus<span style="color:#5d5be7">Connect</span>
+      </div>
+      <div class="nav-right">
+        <div class="theme-picker" aria-label="Choose color theme">
+          <button type="button" class="swatch" data-theme="blue" title="Blue theme" aria-label="Blue theme"></button>
+          <button type="button" class="swatch" data-theme="emerald" title="Emerald theme"
+            aria-label="Emerald theme"></button>
+          <button type="button" class="swatch" data-theme="sunset" title="Sunset theme"
+            aria-label="Sunset theme"></button>
+          <button type="button" class="swatch active" data-theme="rose" title="Rose theme"
+            aria-label="Rose theme"></button>
+          <button type="button" class="swatch" data-theme="dark" title="Dark theme" aria-label="Dark theme"></button>
+        </div><small><i class="fa-solid fa-shield-halved" style="color:#16865f"></i> College Admission Portal</small>
+      </div>
+    </div>
+  </header>
+  <section class="hero">
+    <div class="hero-in">
+      <div>
+        <div class="eyebrow">Admissions • Student records</div>
+        <h1>College Application Form</h1>
+        <p>Register students and manage applications in one place.</p>
+      </div>
+      <div class="hero-art"><i class="fa-solid fa-building-columns"></i></div>
+    </div>
+  </section>
+  <main>
+    <section class="style-note">
+      <div><span class="style-icon"><i class="fa-solid fa-palette"></i></span>
+        <div><strong>Make it your style</strong><small>Choose a color theme above. The whole application page updates
+            instantly.</small></div>
+      </div><span class="live-pill"><i class="fa-solid fa-circle"></i> Live preview</span>
+    </section>
+    <section class="card">
+      <h2 class="heading"><i class="fa-solid fa-user-plus"></i> Student application details</h2>
+      <form id="applicationForm">
+        <div class="grid">
+          <div class="field"><label for="studentName">STUDENT FULL NAME *</label><input id="studentName" required
+              placeholder="Enter full name"></div>
+          <div class="field"><label for="email">EMAIL ADDRESS *</label><input id="email" type="email" required
+              placeholder="student@example.com"></div>
+          <div class="field"><label for="phone">PHONE NUMBER *</label><input id="phone" type="tel" required
+              placeholder="Enter phone number"></div>
+          <div class="field"><label for="dob">DATE OF BIRTH *</label><input id="dob" type="date" required></div>
+          <div class="field"><label for="gender">GENDER</label><select id="gender">
+              <option value="">Select gender</option>
+              <option>Female</option>
+              <option>Male</option>
+              <option>Prefer not to say</option>
+            </select></div>
+          <div class="field"><label for="course">COURSE APPLIED FOR *</label><select id="course" required>
+              <option value="">Choose course</option>
+              <option>B.Sc Computer Science</option>
+              <option>B.Com</option>
+              <option>B.A English</option>
+              <option>BBA</option>
+              <option>BCA</option>
+              <option>B.Tech</option>
+              <option>MBA</option>
+            </select></div>
+          <div class="field"><label for="qualification">LAST QUALIFICATION *</label><select id="qualification" required>
+              <option value="">Select qualification</option>
+              <option>12th / Intermediate</option>
+              <option>Diploma</option>
+              <option>Undergraduate</option>
+              <option>Postgraduate</option>
+            </select></div>
+          <div class="field"><label for="year">ADMISSION YEAR</label><select id="year">
+              <option>2026-27</option>
+              <option>2027-28</option>
+              <option>2028-29</option>
+            </select></div>
+          <div class="field"><label for="city">CITY *</label><input id="city" required placeholder="Enter city"></div>
+          <div class="field wide"><label for="address">ADDRESS</label><textarea id="address"
+              placeholder="House number, street, area..."></textarea></div>
+          <div class="field"><label for="photo">STUDENT PHOTO</label>
+            <div class="upload"><i class="fa-regular fa-image"></i>
+              <div class="upload-text">Upload student photo<small>JPG or PNG · Optional</small></div><input id="photo"
+                type="file" accept="image/*">
+            </div>
+          </div>
+        </div>
+        <div class="actions"><button class="btn light" type="reset"><i class="fa-solid fa-rotate-left"></i> Clear
+            form</button><button class="btn primary" type="submit"><i class="fa-solid fa-paper-plane"></i> Submit
+            application</button></div>
+      </form>
+    </section>
+    <section class="card">
+      <div class="table-head">
+        <h2 class="heading"><i class="fa-solid fa-table-list"></i> Student applications</h2>
+        <div class="search"><i class="fa-solid fa-magnifying-glass"></i><input id="search" type="search"
+            placeholder="Search name, course, city..."></div>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Student</th>
+              <th>Application ID</th>
+              <th>Course</th>
+              <th>Contact</th>
+              <th>City</th>
+              <th>Status</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody id="records">
+            <tr>
+              <td>
+                <div class="student"><img class="avatar"
+                    src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&h=100&fit=crop&crop=faces"
+                    alt="Student">
+                  <div><strong>Ananya Reddy</strong><small>ananya@example.com</small></div>
+                </div>
+              </td>
+              <td>APP-2026-001</td>
+              <td><span class="course">BCA</span></td>
+              <td>98765 43210</td>
+              <td>Chittoor</td>
+              <td><span class="status">Submitted</span></td>
+              <td><button class="action" onclick="this.closest('tr').remove();filterRows()" title="Delete"><i
+                    class="fa-solid fa-trash"></i></button></td>
+            </tr>
+            <tr>
+              <td>
+                <div class="student"><img class="avatar"
+                    src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop&crop=faces"
+                    alt="Student">
+                  <div><strong>Arjun Kumar</strong><small>arjun@example.com</small></div>
+                </div>
+              </td>
+              <td>APP-2026-002</td>
+              <td><span class="course">B.Com</span></td>
+              <td>91234 56780</td>
+              <td>Tirupati</td>
+              <td><span class="status">Submitted</span></td>
+              <td><button class="action" onclick="this.closest('tr').remove();filterRows()" title="Delete"><i
+                    class="fa-solid fa-trash"></i></button></td>
+            </tr>
+            <tr>
+              <td>
+                <div class="student"><img class="avatar"
+                    src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&h=100&fit=crop&crop=faces"
+                    alt="Student">
+                  <div><strong>Meera Sharma</strong><small>meera@example.com</small></div>
+                </div>
+              </td>
+              <td>APP-2026-003</td>
+              <td><span class="course">B.Sc CS</span></td>
+              <td>99887 76655</td>
+              <td>Bengaluru</td>
+              <td><span class="status">Submitted</span></td>
+              <td><button class="action" onclick="this.closest('tr').remove();filterRows()" title="Delete"><i
+                    class="fa-solid fa-trash"></i></button></td>
+            </tr>
+          </tbody>
+        </table>
+        <div id="empty" class="empty" hidden><i class="fa-regular fa-folder-open"></i><br>No applications found.</div>
+      </div>
+    </section>
+  </main>
+  <footer>© 2026 CampusConnect · College Application Management</footer>
+  <script>
+    const form = document.getElementById('applicationForm'), records = document.getElementById('records'), search = document.getElementById('search'), empty = document.getElementById('empty'); let nextId = 4;
+    function filterRows() { const q = search.value.toLowerCase().trim();[...records.rows].forEach(r => r.hidden = !r.textContent.toLowerCase().includes(q)); empty.hidden = [...records.rows].some(r => !r.hidden) }
+    search.addEventListener('input', filterRows);
+    form.addEventListener('submit', e => {
+      e.preventDefault(); const v = id => document.getElementById(id).value.trim(), name = v('studentName'), email = v('email'), phone = v('phone'), course = v('course'), city = v('city'), file = document.getElementById('photo').files[0], src = file ? URL.createObjectURL(file) : 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&h=100&fit=crop&crop=faces'; const tr = document.createElement('tr'), td = document.createElement('td'), student = document.createElement('div'); student.className = 'student'; const img = document.createElement('img'); img.className = 'avatar'; img.src = src; img.alt = 'Student photo'; const info = document.createElement('div'), strong = document.createElement('strong'), small = document.createElement('small'); strong.textContent = name; small.textContent = email; info.append(strong, small); student.append(img, info); td.append(student); tr.append(td);
+      [`APP-2026-${String(nextId++).padStart(3, '0')}`, course, phone, city].forEach((value, i) => { const cell = document.createElement('td'); if (i === 1) { const tag = document.createElement('span'); tag.className = 'course'; tag.textContent = value; cell.append(tag) } else cell.textContent = value; tr.append(cell) });
+      const st = document.createElement('td'), tag = document.createElement('span'); tag.className = 'status'; tag.textContent = 'Submitted'; st.append(tag); tr.append(st); const ac = document.createElement('td'), del = document.createElement('button'); del.className = 'action'; del.type = 'button'; del.title = 'Delete'; del.innerHTML = '<i class="fa-solid fa-trash"></i>'; del.onclick = () => { tr.remove(); filterRows() }; ac.append(del); tr.append(ac); records.prepend(tr); form.reset(); filterRows()
+    });
 
-document.querySelectorAll('.swatch').forEach(button=>{
-  button.addEventListener('click',()=>{
-    const theme=button.dataset.theme;
-    document.body.dataset.theme=theme;
-    document.querySelectorAll('.swatch').forEach(item=>item.classList.toggle('active',item===button));
-  });
-});
+    document.querySelectorAll('.swatch').forEach(button => {
+      button.addEventListener('click', () => {
+        const theme = button.dataset.theme;
+        document.body.dataset.theme = theme;
+        document.querySelectorAll('.swatch').forEach(item => item.classList.toggle('active', item === button));
+      });
+    });
 
-</script></body></html>
+  </script>
+</body>
+
+</html>

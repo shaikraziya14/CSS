@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CSS Classifieds</title>
     <style>
-        * { box-sizing: border-box; }
+        * {
+            box-sizing: border-box;
+        }
 
         body {
             margin: 0;
@@ -15,7 +18,10 @@
             font-family: Arial, sans-serif;
         }
 
-        .page { max-width: 1050px; margin: auto; }
+        .page {
+            max-width: 1050px;
+            margin: auto;
+        }
 
         header {
             display: flex;
@@ -36,8 +42,15 @@
             font-weight: 800;
         }
 
-        header h1 { margin: 0 0 5px; font-size: 28px; }
-        header p { margin: 0; color: #667085; }
+        header h1 {
+            margin: 0 0 5px;
+            font-size: 28px;
+        }
+
+        header p {
+            margin: 0;
+            color: #667085;
+        }
 
         .panel {
             margin-bottom: 24px;
@@ -48,7 +61,10 @@
             box-shadow: 0 8px 24px #1018280d;
         }
 
-        .panel h2 { margin: 0 0 20px; font-size: 20px; }
+        .panel h2 {
+            margin: 0 0 20px;
+            font-size: 20px;
+        }
 
         .form-grid {
             display: grid;
@@ -64,7 +80,8 @@
             font-weight: 600;
         }
 
-        input, select {
+        input,
+        select {
             width: 100%;
             min-height: 44px;
             padding: 10px 12px;
@@ -75,12 +92,15 @@
             font: inherit;
         }
 
-        input:focus, select:focus {
+        input:focus,
+        select:focus {
             outline: 3px solid #bfdbfe;
             border-color: #2563eb;
         }
 
-        .full-width { grid-column: 1 / -1; }
+        .full-width {
+            grid-column: 1 / -1;
+        }
 
         button {
             min-height: 44px;
@@ -94,9 +114,13 @@
             cursor: pointer;
         }
 
-        button:hover { background: #1d4ed8; }
+        button:hover {
+            background: #1d4ed8;
+        }
 
-        .table-wrap { overflow-x: auto; }
+        .table-wrap {
+            overflow-x: auto;
+        }
 
         table {
             width: 100%;
@@ -104,7 +128,8 @@
             text-align: left;
         }
 
-        th, td {
+        th,
+        td {
             padding: 13px 12px;
             border-bottom: 1px solid #eaecf0;
             white-space: nowrap;
@@ -126,7 +151,11 @@
             background: #e4e7ec;
         }
 
-        .price { color: #16794a; font-weight: 700; }
+        .price {
+            color: #16794a;
+            font-weight: 700;
+        }
+
         .condition {
             padding: 5px 9px;
             border-radius: 20px;
@@ -136,14 +165,29 @@
         }
 
         @media (max-width: 650px) {
-            body { padding: 22px 12px; }
-            .panel { padding: 18px 14px; }
-            .form-grid { grid-template-columns: 1fr; }
-            .full-width { grid-column: auto; }
-            header h1 { font-size: 23px; }
+            body {
+                padding: 22px 12px;
+            }
+
+            .panel {
+                padding: 18px 14px;
+            }
+
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .full-width {
+                grid-column: auto;
+            }
+
+            header h1 {
+                font-size: 23px;
+            }
         }
     </style>
 </head>
+
 <body>
     <main class="page">
         <header>
@@ -274,4 +318,5 @@
         });
     </script>
 </body>
+
 </html>

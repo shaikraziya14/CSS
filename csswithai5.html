@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#173b52">
+    <title>Biodata Form | Adhimulam Venkatesh</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            margin: 0;
+            padding: 38px 18px;
+            color: #233544;
+            background:
+                radial-gradient(ellipse at 10% 12%, #62b9a833, transparent 34%),
+                radial-gradient(ellipse at 90% 82%, #e8a65b30, transparent 32%),
+                linear-gradient(135deg, #e5eef5, #e4f0ed 52%, #f8eee0);
+            font-family: "Segoe UI", Arial, sans-serif;
+        }
+
+        .sheet {
+            width: min(100%, 820px);
+            margin: 0 auto;
+            padding: clamp(24px, 6vw, 52px);
+            border: 1px solid #ffffffc9;
+            border-radius: 24px;
+            background: linear-gradient(155deg, #ffffff, #f4f8fa);
+            box-shadow: 0 26px 70px #173b5226, 0 4px 14px #173b5212;
+        }
+
+        header {
+            margin-bottom: 30px;
+            padding: 30px clamp(22px, 5vw, 38px);
+            overflow: hidden;
+            border: 1px solid #ffffff30;
+            border-radius: 18px;
+            background: linear-gradient(120deg, #173b52, #246c70);
+            box-shadow: 0 12px 28px #173b5226;
+        }
+
+        .eyebrow {
+            margin: 0 0 8px;
+            color: #9de3d0;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 3.2px;
+            text-transform: uppercase;
+        }
+
+        h1 {
+            margin: 0;
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: clamp(32px, 7vw, 46px);
+            font-weight: 500;
+            letter-spacing: -.5px;
+            color: #fff;
+        }
+
+        .description {
+            margin: 10px 0 0;
+            color: #d3e6e8;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        fieldset {
+            min-width: 0;
+            margin: 0 0 24px;
+            padding: 20px;
+            border: 1px solid #dce6eb;
+            border-left: 4px solid #48a895;
+            border-radius: 12px;
+            background: #ffffffc9;
+            box-shadow: 0 5px 16px #173b520a;
+        }
+
+        fieldset:nth-of-type(2) {
+            border-left-color: #e2a04b;
+        }
+
+        fieldset:nth-of-type(3) {
+            border-left-color: #718bd1;
+        }
+
+        legend {
+            padding: 0 9px;
+            color: #1d6570;
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 20px;
+            font-weight: 600;
+        }
+
+        .fields {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 17px 18px;
+        }
+
+        .field {
+            display: grid;
+            align-content: start;
+            gap: 7px;
+        }
+
+        .field.full {
+            grid-column: 1 / -1;
+        }
+
+        label {
+            color: #435663;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: .2px;
+        }
+
+        input,
+        select,
+        textarea {
+            width: 100%;
+            min-height: 42px;
+            padding: 10px 11px;
+            border: 1px solid #d5e0e5;
+            border-radius: 8px;
+            outline: none;
+            color: #203441;
+            background: #f9fbfc;
+            font: inherit;
+            font-size: 14px;
+            transition: border-color .2s ease, box-shadow .2s ease, background .2s ease;
+        }
+
+        textarea {
+            min-height: 82px;
+            resize: vertical;
+            line-height: 1.6;
+        }
+
+        input:focus,
+        select:focus,
+        textarea:focus {
+            border-color: #2b8c83;
+            background: #fff;
+            box-shadow: 0 0 0 3px #2b8c8320;
+        }
+
+        .actions {
+            display: flex;
+            justify-content: flex-end;
+            padding-top: 2px;
+        }
+
+        button {
+            min-height: 44px;
+            padding: 0 22px;
+            border: 0;
+            border-radius: 9px;
+            color: #fff;
+            background: linear-gradient(110deg, #1d6570, #29947e);
+            font: inherit;
+            font-size: 14px;
+            font-weight: 700;
+            cursor: pointer;
+            box-shadow: 0 7px 16px #1d65702b;
+            transition: transform .2s ease, box-shadow .2s ease;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px #1d657036;
+        }
+
+        button:focus-visible {
+            outline: 3px solid #58b6a2;
+            outline-offset: 3px;
+        }
+
+        @media (max-width: 560px) {
+            body {
+                padding: 14px 10px;
+            }
+
+            .sheet {
+                padding: 25px 18px;
+            }
+
+            fieldset {
+                padding: 15px 12px;
+            }
+
+            .fields {
+                grid-template-columns: 1fr;
+                gap: 14px;
+            }
+
+            .field.full {
+                grid-column: auto;
+            }
+        }
+
+        @media print {
+            @page {
+                size: A4;
+                margin: 14mm;
+            }
+
+            body {
+                padding: 0;
+                background: #fff;
+            }
+
+            .sheet {
+                width: 100%;
+                padding: 0;
+                border: 0;
+                border-radius: 0;
+                background: #fff;
+                box-shadow: none;
+            }
+
+            header {
+                padding: 0 0 16px;
+                border: 0;
+                border-bottom: 2px solid #246c70;
+                border-radius: 0;
+                background: #fff;
+                box-shadow: none;
+            }
+
+            h1,
+            .eyebrow,
+            .description,
+            legend {
+                color: #222;
+            }
+
+            fieldset {
+                break-inside: avoid;
+                border-color: #aaa;
+                border-left-color: #777;
+                border-radius: 0;
+                background: #fff;
+                box-shadow: none;
+            }
+
+            input,
+            select,
+            textarea {
+                border-color: #aaa;
+                box-shadow: none;
+            }
+
+            .actions {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main class="sheet">
+        <header>
+            <p class="eyebrow">Personal details</p>
+            <h1>Biodata Form</h1>
+            <p class="description">Fill in the details below to complete your biodata.</p>
+        </header>
+
+        <form>
+            <fieldset>
+                <legend>Personal information</legend>
+                <div class="fields">
+                    <div class="field full">
+                        <label for="full-name">Full name</label>
+                        <input id="full-name" name="fullName" type="text" value="Adhimulam Venkatesh" autocomplete="name" required>
+                    </div>
+                    <div class="field">
+                        <label for="date-of-birth">Date of birth</label>
+                        <input id="date-of-birth" name="dateOfBirth" type="date" value="1992-01-25">
+                    </div>
+                    <div class="field">
+                        <label for="gender">Gender</label>
+                        <select id="gender" name="gender">
+                            <option value="">Select</option>
+                            <option selected>Male</option>
+                            <option>Female</option>
+                            <option>Prefer not to say</option>
+                        </select>
+                    </div>
+                    <div class="field">
+                        <label for="phone">Phone number</label>
+                        <input id="phone" name="phone" type="tel" value="9281451510" autocomplete="tel">
+                    </div>
+                    <div class="field">
+                        <label for="email">Email address</label>
+                        <input id="email" name="email" type="email" value="venkaatesh.v@gmail.com" autocomplete="email">
+                    </div>
+                    <div class="field full">
+                        <label for="address">Address</label>
+                        <textarea id="address" name="address" autocomplete="street-address">Chintal, Hyderabad - 5000044</textarea>
+                    </div>
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>Education and work</legend>
+                <div class="fields">
+                    <div class="field">
+                        <label for="education">Education</label>
+                        <input id="education" name="education" type="text" value="10th Class, Intermediate, ITI Mechanical">
+                    </div>
+                    <div class="field">
+                        <label for="occupation">Occupation</label>
+                        <input id="occupation" name="occupation" type="text" value="CNC Turning Operator &amp; Programmer">
+                    </div>
+                    <div class="field full">
+                        <label for="skills">Skills or experience</label>
+                        <textarea id="skills" name="skills">LMN Company - 2 years' experience
+Raghu Vamsi Aerospace - 7 years' experience</textarea>
+                    </div>
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>Additional details</legend>
+                <div class="fields">
+                    <div class="field">
+                        <label for="languages">Languages known</label>
+                        <input id="languages" name="languages" type="text" value="Hindi, Telugu, English">
+                    </div>
+                    <div class="field">
+                        <label for="nationality">Nationality</label>
+                        <input id="nationality" name="nationality" type="text" value="Indian">
+                    </div>
+                    <div class="field full">
+                        <label for="interests">Interests</label>
+                        <textarea id="interests" name="interests"></textarea>
+                    </div>
+                </div>
+            </fieldset>
+
+            <div class="actions">
+                <button type="button" onclick="window.print()">Print / Save as PDF</button>
+            </div>
+        </form>
+    </main>
+</body>
+</html>
